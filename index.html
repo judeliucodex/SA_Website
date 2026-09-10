@@ -7,8 +7,9 @@
   <meta name="description" content="St. Stephen's College Students' Association — Cabinet No.1 Odyssey 2026-2027. A journey of growth, challenges and discoveries.">
   <meta property="og:title" content="Cabinet Odyssey 2026–2027">
   <meta property="og:description" content="聖士提反書院學生會 — 一號候選內閣 Odyssey">
+  <meta property="og:image" content="assets/banner.jpg">
   <meta property="og:type" content="website">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/logo.png" type="image/png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,9 +23,10 @@
       theme: {
         extend: {
           colors: {
-            navy: { 900: '#070b14', 800: '#0a0e1a', 700: '#111827', 600: '#1a2035' },
-            gold: { 400: '#d4b55a', 500: '#c9a84c', 600: '#b8943f' },
-            cream: '#f5f0e8',
+            ocean: { 900: '#2a4a5a', 800: '#3d6b7e', 700: '#4a7c8e', 600: '#5b8fa8', 500: '#6fa3b8', 400: '#8fb8c8', 300: '#b0d0dc' },
+            sunset: { 500: '#e8773a', 400: '#f09050', 600: '#d06830' },
+            sand: '#f0dcc0',
+            sandlight: '#f8efe0',
           },
           fontFamily: {
             display: ['"Playfair Display"', 'serif'],
@@ -39,53 +41,51 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { background: #070b14; }
+    html { background: #2a4a5a; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #070b14;
-      color: #e8e4dc;
+      background: linear-gradient(180deg, #2a4a5a 0%, #1e3a4a 50%, #162e3e 100%);
+      color: #f0dcc0;
       overflow-x: hidden;
     }
 
-    /* Smooth scroll */
     html { scroll-behavior: smooth; }
 
-    /* Custom scrollbar */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #070b14; }
-    ::-webkit-scrollbar-thumb { background: #c9a84c44; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #c9a84c88; }
+    ::-webkit-scrollbar-track { background: #2a4a5a; }
+    ::-webkit-scrollbar-thumb { background: #e8773a66; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #e8773a; }
 
-    /* Glass card */
+    /* Glass card — teal tint */
     .glass {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(91, 143, 168, 0.08);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(91, 143, 168, 0.15);
     }
 
-    .glass-gold {
-      background: rgba(201, 168, 76, 0.05);
+    .glass-warm {
+      background: rgba(232, 119, 58, 0.06);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(232, 119, 58, 0.2);
     }
 
-    /* Hero gradient overlay */
+    /* Hero gradient */
     .hero-gradient {
       background: linear-gradient(180deg,
-        rgba(7, 11, 20, 0.3) 0%,
-        rgba(7, 11, 20, 0.6) 50%,
-        rgba(7, 11, 20, 1) 100%
+        rgba(42, 74, 90, 0.2) 0%,
+        rgba(30, 58, 74, 0.5) 50%,
+        rgba(22, 46, 62, 1) 100%
       );
     }
 
-    /* Gold line accent */
-    .gold-line {
+    /* Orange accent line */
+    .accent-line {
       width: 60px;
       height: 2px;
-      background: linear-gradient(90deg, #c9a84c, transparent);
+      background: linear-gradient(90deg, #e8773a, transparent);
     }
 
     /* Timeline */
@@ -95,7 +95,7 @@
       top: 0;
       bottom: 0;
       width: 1px;
-      background: linear-gradient(180deg, transparent, #c9a84c44, #c9a84c44, transparent);
+      background: linear-gradient(180deg, transparent, #e8773a44, #e8773a44, transparent);
       transform: translateX(-50%);
     }
 
@@ -103,55 +103,44 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: #c9a84c;
-      border: 2px solid #070b14;
-      box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+      background: #e8773a;
+      border: 2px solid #2a4a5a;
+      box-shadow: 0 0 20px rgba(232, 119, 58, 0.4);
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
     }
 
-    /* Mobile timeline */
     @media (max-width: 768px) {
       .timeline-line { left: 20px; }
       .timeline-dot { left: 20px; }
     }
 
-    /* Section reveal animations (initial state, animated by GSAP) */
+    /* Reveal animations */
     .reveal { opacity: 0; transform: translateY(40px); }
     .reveal-left { opacity: 0; transform: translateX(-40px); }
     .reveal-right { opacity: 0; transform: translateX(40px); }
     .reveal-scale { opacity: 0; transform: scale(0.95); }
 
-    /* Noise texture overlay */
+    /* Noise texture */
     .noise::before {
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 9999;
     }
 
-    /* Floating particles */
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(201, 168, 76, 0.3);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    /* Nav blur on scroll */
+    /* Nav */
     .nav-scrolled {
-      background: rgba(7, 11, 20, 0.85) !important;
+      background: rgba(30, 58, 74, 0.9) !important;
       backdrop-filter: blur(20px) !important;
-      border-bottom: 1px solid rgba(201, 168, 76, 0.1) !important;
+      border-bottom: 1px solid rgba(232, 119, 58, 0.15) !important;
     }
 
-    /* Link hover effect */
+    /* Link hover */
     .link-hover {
       position: relative;
       display: inline-block;
@@ -163,23 +152,34 @@
       left: 0;
       width: 0;
       height: 1px;
-      background: #c9a84c;
+      background: #e8773a;
       transition: width 0.3s ease;
     }
     .link-hover:hover::after { width: 100%; }
 
-    /* Member card hover */
+    /* Member card */
     .member-card {
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
     .member-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(201, 168, 76, 0.3);
+      border-color: rgba(232, 119, 58, 0.4);
     }
 
-    /* Bilingual toggle */
-    .lang-en, .lang-tc { transition: opacity 0.3s ease; }
-    .lang-hidden { display: none; }
+    /* Wave divider */
+    .wave-divider {
+      position: relative;
+    }
+    .wave-divider::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40'%3E%3Cpath fill='%231e3a4a' fill-opacity='0.5' d='M0,20 C360,40 720,0 1080,20 C1260,30 1380,25 1440,20 L1440,40 L0,40 Z'/%3E%3C/svg%3E") no-repeat bottom;
+      background-size: cover;
+    }
   </style>
 </head>
 <body class="noise">
@@ -187,14 +187,14 @@
   <!-- Navigation -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#hero" class="font-display text-lg text-gold-500 tracking-wide">Odyssey</a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-body text-white/60">
-        <a href="#mission" class="link-hover hover:text-gold-400 transition-colors">Mission</a>
-        <a href="#events" class="link-hover hover:text-gold-400 transition-colors">Events</a>
-        <a href="#members" class="link-hover hover:text-gold-400 transition-colors">Cabinet</a>
-        <a href="#links" class="link-hover hover:text-gold-400 transition-colors">Documents</a>
+      <a href="#hero" class="font-display text-lg text-sunset-500 tracking-wide">Odyssey</a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-body text-sand/60">
+        <a href="#mission" class="link-hover hover:text-sunset-400 transition-colors">Mission</a>
+        <a href="#events" class="link-hover hover:text-sunset-400 transition-colors">Events</a>
+        <a href="#members" class="link-hover hover:text-sunset-400 transition-colors">Cabinet</a>
+        <a href="#links" class="link-hover hover:text-sunset-400 transition-colors">Documents</a>
       </div>
-      <button id="lang-toggle" class="text-xs font-body text-white/40 hover:text-gold-400 border border-white/10 hover:border-gold-500/30 rounded-full px-3 py-1 transition-all" onclick="toggleLang()">
+      <button id="lang-toggle" class="text-xs font-body text-sand/40 hover:text-sunset-400 border border-sand/10 hover:border-sunset-500/30 rounded-full px-3 py-1 transition-all" onclick="toggleLang()">
         EN / 中
       </button>
     </div>
@@ -202,44 +202,43 @@
 
   <!-- ============ HERO / BANNER ============ -->
   <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Banner background image -->
+    <!-- Banner background -->
     <div class="absolute inset-0">
-      <img src="assets/banner.jpg" alt="" class="w-full h-full object-cover opacity-60" onerror="this.style.display='none'">
+      <img src="assets/banner.jpg" alt="" class="w-full h-full object-cover">
       <div class="hero-gradient absolute inset-0"></div>
     </div>
 
-    <!-- Floating particles container -->
+    <!-- Floating particles -->
     <div id="particles" class="absolute inset-0 pointer-events-none"></div>
 
     <!-- Hero content -->
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="reveal-scale mb-6">
-        <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-24 h-24 mx-auto opacity-80" onerror="this.style.display='none'">
+      <div class="reveal-scale mb-8">
+        <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-28 h-28 md:w-32 md:h-32 mx-auto drop-shadow-lg">
       </div>
 
-      <p class="font-body text-sm tracking-[0.3em] uppercase text-gold-500/70 mb-4 reveal">
+      <p class="font-body text-sm tracking-[0.3em] uppercase text-sand/60 mb-4 reveal">
         St. Stephen's College Students' Association
       </p>
 
-      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-cream mb-4 reveal" style="line-height: 1.1;">
-        Cabinet<br>
-        <span class="text-gold-500 italic">Odyssey</span>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-sunset-500 mb-4 reveal" style="line-height: 1.1; text-shadow: 0 2px 40px rgba(232,119,58,0.3);">
+        ODYSSEY
       </h1>
 
-      <p class="font-tc text-lg md:text-xl text-white/40 mb-8 reveal">
-        聖士提反書院學生會 · 二號內閣 Odyssey · 2026–2027
+      <p class="font-tc text-lg md:text-xl text-sand/50 mb-8 reveal">
+        聖士提反書院學生會 · 一號內閣 Odyssey · 2026–2027
       </p>
 
-      <div class="gold-line mx-auto reveal"></div>
+      <div class="accent-line mx-auto reveal"></div>
 
-      <p class="font-body text-base md:text-lg text-white/50 mt-8 max-w-xl mx-auto reveal" style="font-weight: 300;">
+      <p class="font-body text-base md:text-lg text-sand/60 mt-8 max-w-xl mx-auto reveal" style="font-weight: 300;">
         A journey filled with growth, challenges and discoveries.
       </p>
 
       <!-- Scroll indicator -->
       <div class="absolute bottom-12 left-1/2 -translate-x-1/2 reveal">
-        <div class="w-5 h-8 border border-white/20 rounded-full flex items-start justify-center p-1">
-          <div class="w-1 h-2 bg-gold-500 rounded-full animate-bounce"></div>
+        <div class="w-5 h-8 border border-sand/20 rounded-full flex items-start justify-center p-1">
+          <div class="w-1 h-2 bg-sunset-500 rounded-full animate-bounce"></div>
         </div>
       </div>
     </div>
@@ -249,82 +248,80 @@
   <section id="mission" class="relative py-32 px-6">
     <div class="max-w-5xl mx-auto">
 
-      <!-- Section label -->
       <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-gold-500/50 mb-3 reveal">Our Name</p>
-        <h2 class="font-display text-4xl md:text-5xl text-cream reveal">The Meaning of <span class="text-gold-500 italic">Odyssey</span></h2>
-        <div class="gold-line mx-auto mt-6 reveal"></div>
+        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">Our Name</p>
+        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">The Meaning of <span class="text-sunset-500 italic">Odyssey</span></h2>
+        <div class="accent-line mx-auto mt-6 reveal"></div>
       </div>
 
-      <!-- Name meaning -->
       <div class="grid md:grid-cols-2 gap-12 mb-24">
         <div class="reveal-left">
-          <p class="font-body text-base leading-relaxed text-white/60" style="font-weight: 300;">
-            <span class="text-gold-500 font-display text-lg italic">Odyssey</span> refers to a journey filled with growth, challenges and discoveries. This word originates from Greek and symbolises a challenging voyage through harsh waters and storms — a true test of strength and resilience.
+          <p class="font-body text-base leading-relaxed text-sand/70" style="font-weight: 300;">
+            <span class="text-sunset-500 font-display text-lg italic">Odyssey</span> refers to a journey filled with growth, challenges and discoveries. This word originates from Greek and symbolises a challenging voyage through harsh waters and storms — a true test of strength and resilience.
           </p>
-          <p class="font-body text-base leading-relaxed text-white/60 mt-4" style="font-weight: 300;">
+          <p class="font-body text-base leading-relaxed text-sand/70 mt-4" style="font-weight: 300;">
             Much like school life, this is an adventure where every student embarks on a journey of personal growth, discovery, and resilience. We hope to support our students through each step of this voyage, no matter it being personal or academic problems, and lead them to success.
           </p>
         </div>
         <div class="reveal-right">
-          <p class="font-tc text-base leading-loose text-white/40">
+          <p class="font-tc text-base leading-loose text-sand/50">
             Odyssey 指的是一段充滿成長、挑戰與發現的旅程。這個源自希臘的名字，象徵著穿越險惡水域與風暴的艱難航程，更是對力量與韌性的真正考驗。
           </p>
-          <p class="font-tc text-base leading-loose text-white/40 mt-4">
+          <p class="font-tc text-base leading-loose text-sand/50 mt-4">
             我們相信，這恰如我們的校園生活：一場冒險，每位學生都將踏上這段個人成長的旅程。我們期盼能陪伴學生走過這趟旅程的每一步，無論是個人或學業上的問題，都將竭盡所能提供支援，引領他們邁向成功的里程碑。
           </p>
         </div>
       </div>
 
-      <!-- Mission / Aim -->
+      <!-- Mission -->
       <div class="text-center mb-16">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-gold-500/50 mb-3 reveal">Our Aim</p>
-        <h2 class="font-display text-4xl md:text-5xl text-cream reveal">Our <span class="text-gold-500 italic">Mission</span></h2>
-        <div class="gold-line mx-auto mt-6 reveal"></div>
+        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">Our Aim</p>
+        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Our <span class="text-sunset-500 italic">Mission</span></h2>
+        <div class="accent-line mx-auto mt-6 reveal"></div>
       </div>
 
-      <div class="glass rounded-2xl p-8 md:p-12 reveal-scale">
+      <div class="glass-warm rounded-2xl p-8 md:p-12 reveal-scale">
         <div class="grid md:grid-cols-2 gap-10">
           <div>
-            <p class="font-body text-base leading-relaxed text-white/60" style="font-weight: 300;">
+            <p class="font-body text-base leading-relaxed text-sand/70" style="font-weight: 300;">
               We understand that as a student, learning is a massive chapter of growth, learning and shared experiences that goes far beyond the classroom.
             </p>
-            <p class="font-body text-base leading-relaxed text-white/60 mt-4" style="font-weight: 300;">
-              At Odyssey, we put students' interests first. We are committed to leading by example, listening humbly and doing change where needed, acting as the vital liaison between the student body and the school administration. Our goal is to make this school year unforgettable for every student through a variety of events and initiatives.
+            <p class="font-body text-base leading-relaxed text-sand/70 mt-4" style="font-weight: 300;">
+              At Odyssey, we put students' interests first. We are committed to leading by example, listening humbly and doing change where needed, acting as the vital liaison between the student body and the school administration. Our goal is to make this school year unforgettable for every student.
             </p>
           </div>
           <div>
-            <p class="font-tc text-base leading-loose text-white/40">
+            <p class="font-tc text-base leading-loose text-sand/50">
               我們深知，學生時代是成長、學習與共享體驗的重要篇章，其意義遠遠超越了課堂的範疇。
             </p>
-            <p class="font-tc text-base leading-loose text-white/40 mt-4">
-              我們將每位學生的興趣放在首位，以此打造一段成功且難忘的旅程。我們致力於以包容的態度引領、以謙遜的態度傾聽、以開放的態度倡導，並作為學生群體與校方管理層之間不可或缺的溝通橋樑。我們的目標是透過各種精彩紛呈的活動與計畫，為每位學生的本學年創造難忘的回憶。
+            <p class="font-tc text-base leading-loose text-sand/50 mt-4">
+              我們將每位學生的興趣放在首位，以此打造一段成功且難忘的旅程。我們致力於以包容的態度引領、以謙遜的態度傾聽、以開放的態度倡導，並作為學生群體與校方管理層之間不可或缺的溝通橋樑。
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Pillar icons -->
+      <!-- Pillars -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
         <div class="glass rounded-xl p-6 text-center reveal">
           <div class="text-2xl mb-3">🤝</div>
-          <p class="font-display text-sm text-gold-500 mb-1">Services</p>
-          <p class="font-tc text-xs text-white/30">服務</p>
+          <p class="font-display text-sm text-sunset-500 mb-1">Services</p>
+          <p class="font-tc text-xs text-sand/40">服務</p>
         </div>
         <div class="glass rounded-xl p-6 text-center reveal">
           <div class="text-2xl mb-3">🎭</div>
-          <p class="font-display text-sm text-gold-500 mb-1">Activities</p>
-          <p class="font-tc text-xs text-white/30">活動</p>
+          <p class="font-display text-sm text-sunset-500 mb-1">Activities</p>
+          <p class="font-tc text-xs text-sand/40">活動</p>
         </div>
         <div class="glass rounded-xl p-6 text-center reveal">
           <div class="text-2xl mb-3">🏫</div>
-          <p class="font-display text-sm text-gold-500 mb-1">Campus</p>
-          <p class="font-tc text-xs text-white/30">校園改善</p>
+          <p class="font-display text-sm text-sunset-500 mb-1">Campus</p>
+          <p class="font-tc text-xs text-sand/40">校園改善</p>
         </div>
         <div class="glass rounded-xl p-6 text-center reveal">
           <div class="text-2xl mb-3">🌏</div>
-          <p class="font-display text-sm text-gold-500 mb-1">Joint-School</p>
-          <p class="font-tc text-xs text-white/30">聯校活動</p>
+          <p class="font-display text-sm text-sunset-500 mb-1">Joint-School</p>
+          <p class="font-tc text-xs text-sand/40">聯校活動</p>
         </div>
       </div>
     </div>
@@ -335,12 +332,11 @@
     <div class="max-w-5xl mx-auto">
 
       <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-gold-500/50 mb-3 reveal">What We Do</p>
-        <h2 class="font-display text-4xl md:text-5xl text-cream reveal">Key <span class="text-gold-500 italic">Events</span></h2>
-        <div class="gold-line mx-auto mt-6 reveal"></div>
+        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">What We Do</p>
+        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Key <span class="text-sunset-500 italic">Events</span></h2>
+        <div class="accent-line mx-auto mt-6 reveal"></div>
       </div>
 
-      <!-- Timeline container -->
       <div class="relative">
         <div class="timeline-line"></div>
 
@@ -349,12 +345,12 @@
           <div class="timeline-dot" style="top: 24px;"></div>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-gold-500/50">Sep – Oct</span>
-              <h3 class="font-display text-xl text-cream mt-1 mb-2">Easter Appreciation Day</h3>
-              <p class="font-body text-sm text-white/40" style="font-weight: 300;">Egg design workshops, scavenger hunts, and Easter-themed casual wear day.</p>
+              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Sep – Oct</span>
+              <h3 class="font-display text-xl text-sand mt-1 mb-2">Easter Appreciation Day</h3>
+              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Egg design workshops, scavenger hunts, and Easter-themed casual wear day.</p>
             </div>
             <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-white/30 mt-6 md:mt-0">復活節感恩日 — 復活蛋設計工作坊、尋寶活動、復活節便服日。</p>
+              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">復活節感恩日 — 復活蛋設計工作坊、尋寶活動、復活節便服日。</p>
             </div>
           </div>
         </div>
@@ -364,12 +360,12 @@
           <div class="timeline-dot" style="top: 24px;"></div>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-gold-500/50">Oct – Nov</span>
-              <h3 class="font-display text-xl text-cream mt-1 mb-2">Mental Awareness Week</h3>
-              <p class="font-body text-sm text-white/40" style="font-weight: 300;">Promoting mental health through workshops, talks, and wellness activities.</p>
+              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Oct – Nov</span>
+              <h3 class="font-display text-xl text-sand mt-1 mb-2">Mental Awareness Week</h3>
+              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Promoting mental health through workshops, talks, and wellness activities.</p>
             </div>
             <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-white/30 mt-6 md:mt-0">心理健康周 — 透過工作坊、講座及健康活動推廣心理健康。</p>
+              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">心理健康周 — 透過工作坊、講座及健康活動推廣心理健康。</p>
             </div>
           </div>
         </div>
@@ -379,12 +375,12 @@
           <div class="timeline-dot" style="top: 24px;"></div>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-gold-500/50">Nov</span>
-              <h3 class="font-display text-xl text-cream mt-1 mb-2">Spirit Week</h3>
-              <p class="font-body text-sm text-white/40" style="font-weight: 300;">A week of themed casual wear days, house competitions, and school spirit events.</p>
+              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Nov</span>
+              <h3 class="font-display text-xl text-sand mt-1 mb-2">Spirit Week</h3>
+              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Themed casual wear days, house competitions, and school spirit events.</p>
             </div>
             <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-white/30 mt-6 md:mt-0">精神周 — 主題便服日、社際比賽及校內精神活動。</p>
+              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">精神周 — 主題便服日、社際比賽及校內精神活動。</p>
             </div>
           </div>
         </div>
@@ -394,12 +390,12 @@
           <div class="timeline-dot" style="top: 24px;"></div>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-gold-500/50">Dec</span>
-              <h3 class="font-display text-xl text-cream mt-1 mb-2">Eco-Friendly Week</h3>
-              <p class="font-body text-sm text-white/40" style="font-weight: 300;">Sustainability initiatives, recycling drives, and environmental awareness campaigns.</p>
+              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Dec</span>
+              <h3 class="font-display text-xl text-sand mt-1 mb-2">Eco-Friendly Week</h3>
+              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Sustainability initiatives, recycling drives, and environmental awareness campaigns.</p>
             </div>
             <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-white/30 mt-6 md:mt-0">環保周 — 可持續發展倡议、回收活動及環保意識推廣。</p>
+              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">環保周 — 可持續發展倡议、回收活動及環保意識推廣。</p>
             </div>
           </div>
         </div>
@@ -409,12 +405,12 @@
           <div class="timeline-dot" style="top: 24px;"></div>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-gold-500/50">Dec</span>
-              <h3 class="font-display text-xl text-cream mt-1 mb-2">Christmas Ball</h3>
-              <p class="font-body text-sm text-white/40" style="font-weight: 300;">Joint-school Christmas celebration with performances, games, and festive activities.</p>
+              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Dec</span>
+              <h3 class="font-display text-xl text-sand mt-1 mb-2">Christmas Ball</h3>
+              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Joint-school Christmas celebration with performances, games, and festive activities.</p>
             </div>
             <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-white/30 mt-6 md:mt-0">聖誕舞會 — 聯校聖誕慶祝活動，包括表演、遊戲及節日活動。</p>
+              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">聖誕舞會 — 聯校聖誕慶祝活動，包括表演、遊戲及節日活動。</p>
             </div>
           </div>
         </div>
@@ -424,12 +420,12 @@
           <div class="timeline-dot" style="top: 24px;"></div>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-gold-500/50">Jan – Feb</span>
-              <h3 class="font-display text-xl text-cream mt-1 mb-2">Bake Sale</h3>
-              <p class="font-body text-sm text-white/40" style="font-weight: 300;">Student-baked goods sale, raising funds for SA activities and welfare.</p>
+              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Jan – Feb</span>
+              <h3 class="font-display text-xl text-sand mt-1 mb-2">Bake Sale</h3>
+              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Student-baked goods sale, raising funds for SA activities and welfare.</p>
             </div>
             <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-white/30 mt-6 md:mt-0">烘焙義賣 — 學生自製烘焙食品售賣，為學生活動及福利籌款。</p>
+              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">烘焙義賣 — 學生自製烘焙食品售賣，為學生活動及福利籌款。</p>
             </div>
           </div>
         </div>
@@ -439,12 +435,12 @@
           <div class="timeline-dot" style="top: 24px;"></div>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-gold-500/50">Mar – Apr</span>
-              <h3 class="font-display text-xl text-cream mt-1 mb-2">Students' Day</h3>
-              <p class="font-body text-sm text-white/40" style="font-weight: 300;">Sports & esports competitions, society booths, talent show, and food stalls.</p>
+              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Mar – Apr</span>
+              <h3 class="font-display text-xl text-sand mt-1 mb-2">Students' Day</h3>
+              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Sports & esports competitions, society booths, talent show, and food stalls.</p>
             </div>
             <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-white/30 mt-6 md:mt-0">學生日 — 體育及電競比賽、學會攤位、才藝表演及美食攤位。</p>
+              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">學生日 — 體育及電競比賽、學會攤位、才藝表演及美食攤位。</p>
             </div>
           </div>
         </div>
@@ -454,12 +450,12 @@
           <div class="timeline-dot" style="top: 24px;"></div>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-gold-500/50">Jun – Jul</span>
-              <h3 class="font-display text-xl text-cream mt-1 mb-2">Senior Sign Off</h3>
-              <p class="font-body text-sm text-white/40" style="font-weight: 300;">A farewell celebration for graduating seniors — memories, messages, and appreciation.</p>
+              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Jun – Jul</span>
+              <h3 class="font-display text-xl text-sand mt-1 mb-2">Senior Sign Off</h3>
+              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">A farewell celebration for graduating seniors — memories, messages, and appreciation.</p>
             </div>
             <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-white/30 mt-6 md:mt-0;">畢業生送舊會 — 為畢業生舉行的歡送慶祝活動，留下回憶與祝福。</p>
+              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">畢業生送舊會 — 為畢業生舉行的歡送慶祝活動，留下回憶與祝福。</p>
             </div>
           </div>
         </div>
@@ -472,81 +468,80 @@
     <div class="max-w-5xl mx-auto">
 
       <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-gold-500/50 mb-3 reveal">The Team</p>
-        <h2 class="font-display text-4xl md:text-5xl text-cream reveal">Our <span class="text-gold-500 italic">Cabinet</span></h2>
-        <div class="gold-line mx-auto mt-6 reveal"></div>
+        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">The Team</p>
+        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Our <span class="text-sunset-500 italic">Cabinet</span></h2>
+        <div class="accent-line mx-auto mt-6 reveal"></div>
       </div>
 
-      <!-- Members grid -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
 
         <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-gold-500 text-lg">C</span>
+          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
+            <span class="font-display text-sunset-500 text-lg">C</span>
           </div>
-          <p class="font-display text-sm text-cream">Chairman</p>
-          <p class="font-tc text-xs text-white/30 mt-1">主席</p>
+          <p class="font-display text-sm text-sand">Chairman</p>
+          <p class="font-tc text-xs text-sand/30 mt-1">主席</p>
         </div>
 
         <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-gold-500 text-lg">VC</span>
+          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
+            <span class="font-display text-sunset-500 text-lg">VC</span>
           </div>
-          <p class="font-display text-sm text-cream">Vice-Chairman</p>
-          <p class="font-tc text-xs text-white/30 mt-1">副主席</p>
+          <p class="font-display text-sm text-sand">Vice-Chairman</p>
+          <p class="font-tc text-xs text-sand/30 mt-1">副主席</p>
         </div>
 
         <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-gold-500 text-lg">S</span>
+          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
+            <span class="font-display text-sunset-500 text-lg">S</span>
           </div>
-          <p class="font-display text-sm text-cream">Secretary</p>
-          <p class="font-tc text-xs text-white/30 mt-1">秘書</p>
+          <p class="font-display text-sm text-sand">Secretary</p>
+          <p class="font-tc text-xs text-sand/30 mt-1">秘書</p>
         </div>
 
         <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-gold-500 text-lg">T</span>
+          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
+            <span class="font-display text-sunset-500 text-lg">T</span>
           </div>
-          <p class="font-display text-sm text-cream">Treasurer</p>
-          <p class="font-tc text-xs text-white/30 mt-1">司庫</p>
+          <p class="font-display text-sm text-sand">Treasurer</p>
+          <p class="font-tc text-xs text-sand/30 mt-1">司庫</p>
         </div>
 
         <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-gold-500 text-lg">P</span>
+          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
+            <span class="font-display text-sunset-500 text-lg">P</span>
           </div>
-          <p class="font-display text-sm text-cream">Publicity</p>
-          <p class="font-tc text-xs text-white/30 mt-1">公關</p>
+          <p class="font-display text-sm text-sand">Publicity</p>
+          <p class="font-tc text-xs text-sand/30 mt-1">公關</p>
         </div>
 
         <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-gold-500 text-lg">A</span>
+          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
+            <span class="font-display text-sunset-500 text-lg">A</span>
           </div>
-          <p class="font-display text-sm text-cream">Activities</p>
-          <p class="font-tc text-xs text-white/30 mt-1">活動</p>
+          <p class="font-display text-sm text-sand">Activities</p>
+          <p class="font-tc text-xs text-sand/30 mt-1">活動</p>
         </div>
 
         <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-gold-500 text-lg">Sv</span>
+          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
+            <span class="font-display text-sunset-500 text-lg">Sv</span>
           </div>
-          <p class="font-display text-sm text-cream">Services</p>
-          <p class="font-tc text-xs text-white/30 mt-1">服務</p>
+          <p class="font-display text-sm text-sand">Services</p>
+          <p class="font-tc text-xs text-sand/30 mt-1">服務</p>
         </div>
 
         <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-gold-500 text-lg">+</span>
+          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
+            <span class="font-display text-sunset-500 text-lg">+</span>
           </div>
-          <p class="font-display text-sm text-cream">Committee</p>
-          <p class="font-tc text-xs text-white/30 mt-1">委員</p>
+          <p class="font-display text-sm text-sand">Committee</p>
+          <p class="font-tc text-xs text-sand/30 mt-1">委員</p>
         </div>
 
       </div>
 
-      <p class="text-center mt-8 font-body text-xs text-white/20 reveal">
+      <p class="text-center mt-8 font-body text-xs text-sand/20 reveal">
         Member names to be updated · 成員名字待更新
       </p>
     </div>
@@ -555,11 +550,11 @@
   <!-- ============ LOGO SECTION ============ -->
   <section id="logo-section" class="relative py-24 px-6">
     <div class="max-w-3xl mx-auto text-center">
-      <div class="glass-gold rounded-3xl p-12 md:p-16 reveal-scale">
-        <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 opacity-90" onerror="this.outerHTML='<div class=\'w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 rounded-full border-2 border-gold-500/30 flex items-center justify-center\'><span class=\'font-display text-5xl text-gold-500 italic\'>O</span></div>'">
-        <h3 class="font-display text-2xl md:text-3xl text-cream mb-2">Cabinet <span class="text-gold-500 italic">Odyssey</span></h3>
-        <p class="font-tc text-sm text-white/30">二號候選內閣 Odyssey</p>
-        <p class="font-body text-xs text-white/20 mt-4">St. Stephen's College Students' Association 2026–2027</p>
+      <div class="glass-warm rounded-3xl p-12 md:p-16 reveal-scale">
+        <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 drop-shadow-lg">
+        <h3 class="font-display text-2xl md:text-3xl text-sand mb-2">Cabinet <span class="text-sunset-500 italic">Odyssey</span></h3>
+        <p class="font-tc text-sm text-sand/40">一號候選內閣 Odyssey</p>
+        <p class="font-body text-xs text-sand/20 mt-4">St. Stephen's College Students' Association 2026–2027</p>
       </div>
     </div>
   </section>
@@ -569,139 +564,91 @@
     <div class="max-w-3xl mx-auto">
 
       <div class="text-center mb-16">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-gold-500/50 mb-3 reveal">Resources</p>
-        <h2 class="font-display text-4xl md:text-5xl text-cream reveal">Our <span class="text-gold-500 italic">Documents</span></h2>
-        <div class="gold-line mx-auto mt-6 reveal"></div>
+        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">Resources</p>
+        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Our <span class="text-sunset-500 italic">Documents</span></h2>
+        <div class="accent-line mx-auto mt-6 reveal"></div>
       </div>
 
       <div class="space-y-4">
-        <a href="#" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-gold-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500/20 transition-colors">
-            <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <a href="#" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
+          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
+            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </div>
           <div>
-            <p class="font-display text-sm text-cream group-hover:text-gold-400 transition-colors">Election Platform 2026–2027</p>
-            <p class="font-body text-xs text-white/30">竞选政綱 · Full policy document</p>
+            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Election Platform 2026–2027</p>
+            <p class="font-body text-xs text-sand/30">競選政綱 · Full policy document</p>
           </div>
-          <svg class="w-4 h-4 text-white/20 ml-auto group-hover:text-gold-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
 
-        <a href="#" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-gold-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500/20 transition-colors">
-            <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <a href="#" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
+          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
+            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
           <div>
-            <p class="font-display text-sm text-cream group-hover:text-gold-400 transition-colors">Whole Year Activity Plan</p>
-            <p class="font-body text-xs text-white/30">全年活動計劃 · Annual schedule</p>
+            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Whole Year Activity Plan</p>
+            <p class="font-body text-xs text-sand/30">全年活動計劃 · Annual schedule</p>
           </div>
-          <svg class="w-4 h-4 text-white/20 ml-auto group-hover:text-gold-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
 
-        <a href="https://www.instagram.com/ssc._.odyssey/" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-gold-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500/20 transition-colors">
-            <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        <a href="https://www.instagram.com/ssc._.odyssey/" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
+          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
+            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
           </div>
           <div>
-            <p class="font-display text-sm text-cream group-hover:text-gold-400 transition-colors">Follow us on Instagram</p>
-            <p class="font-body text-xs text-white/30">@ssc._.odyssey</p>
+            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Follow us on Instagram</p>
+            <p class="font-body text-xs text-sand/30">@ssc._.odyssey</p>
           </div>
-          <svg class="w-4 h-4 text-white/20 ml-auto group-hover:text-gold-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
       </div>
     </div>
   </section>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="relative py-16 px-6 border-t border-white/5">
+  <footer class="relative py-16 px-6 border-t border-sand/5">
     <div class="max-w-5xl mx-auto text-center">
-      <p class="font-display text-lg text-gold-500/50 mb-2">Cabinet Odyssey</p>
-      <p class="font-body text-xs text-white/20">St. Stephen's College Students' Association · 2026–2027</p>
-      <p class="font-tc text-xs text-white/10 mt-2">聖士提反書院學生會</p>
+      <p class="font-display text-lg text-sunset-500/50 mb-2">Cabinet Odyssey</p>
+      <p class="font-body text-xs text-sand/20">St. Stephen's College Students' Association · 2026–2027</p>
+      <p class="font-tc text-xs text-sand/10 mt-2">聖士提反書院學生會</p>
     </div>
   </footer>
 
-  <!-- GSAP + ScrollTrigger -->
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
-    // Register ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hero animations (immediate, no scroll needed)
+    // Hero animations
     gsap.timeline({ delay: 0.3 })
-      .to('.reveal', {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'power3.out',
-        stagger: 0.15,
-      })
-      .to('.reveal-scale', {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: 'power3.out',
-      }, '-=0.8')
-      .to('.reveal-left', {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-      }, '-=0.6')
-      .to('.reveal-right', {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-      }, '-=0.6');
+      .to('.reveal', { opacity: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.15 })
+      .to('.reveal-scale', { opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }, '-=0.8')
+      .to('.reveal-left', { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6')
+      .to('.reveal-right', { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6');
 
-    // Scroll-triggered animations for sections below the fold
+    // Scroll animations for below-fold sections
     function setupScrollAnimations() {
-      // Reset elements that are below the fold
-      document.querySelectorAll('#mission .reveal, #mission .reveal-left, #mission .reveal-right, #mission .reveal-scale, #events .reveal, #events .reveal-left, #events .reveal-right, #events .reveal-scale, #members .reveal, #members .reveal-scale, #logo-section .reveal-scale, #links .reveal').forEach(el => {
-        // Skip hero elements that are already animated
-        if (!el.closest('#hero')) {
-          gsap.set(el, {
-            opacity: 0,
-            y: el.classList.contains('reveal') ? 40 : 0,
-            x: el.classList.contains('reveal-left') ? -40 : el.classList.contains('reveal-right') ? 40 : 0,
-            scale: el.classList.contains('reveal-scale') ? 0.95 : 1,
-          });
-        }
-      });
-
-      // Create scroll-triggered animations
-      const sections = ['#mission', '#events', '#members', '#logo-section', '#links'];
-      sections.forEach(sectionId => {
-        const section = document.querySelector(sectionId);
-        if (!section) return;
-
-        const reveals = section.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-        reveals.forEach((el, i) => {
-          gsap.to(el, {
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 85%',
-              end: 'top 50%',
-              toggleActions: 'play none none none',
-            },
-            opacity: 1,
-            y: 0,
-            x: 0,
-            scale: 1,
-            duration: 0.8,
-            delay: i * 0.08,
-            ease: 'power3.out',
-          });
+      const selectors = '#mission, #events, #members, #logo-section, #links';
+      document.querySelectorAll(selectors + ' .reveal, ' + selectors + ' .reveal-left, ' + selectors + ' .reveal-right, ' + selectors + ' .reveal-scale').forEach(el => {
+        gsap.set(el, {
+          opacity: 0,
+          y: el.classList.contains('reveal') ? 40 : 0,
+          x: el.classList.contains('reveal-left') ? -40 : el.classList.contains('reveal-right') ? 40 : 0,
+          scale: el.classList.contains('reveal-scale') ? 0.95 : 1,
+        });
+        gsap.to(el, {
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+          opacity: 1, y: 0, x: 0, scale: 1,
+          duration: 0.8, ease: 'power3.out',
         });
       });
     }
-
-    // Run after initial hero animation
     setTimeout(setupScrollAnimations, 1500);
 
-    // Navbar scroll effect
+    // Navbar scroll
     const navbar = document.getElementById('navbar');
     ScrollTrigger.create({
       start: 'top -80',
@@ -709,17 +656,15 @@
       toggleClass: { className: 'nav-scrolled', targets: navbar },
     });
 
-    // Floating particles
+    // Particles
     function createParticles() {
       const container = document.getElementById('particles');
       for (let i = 0; i < 20; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        container.appendChild(particle);
-
-        gsap.to(particle, {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.cssText = `position:absolute;width:2px;height:2px;background:rgba(232,119,58,0.25);border-radius:50%;left:${Math.random()*100}%;top:${Math.random()*100}%;pointer-events:none;`;
+        container.appendChild(p);
+        gsap.to(p, {
           y: -100 - Math.random() * 200,
           x: (Math.random() - 0.5) * 100,
           opacity: 0,
@@ -732,12 +677,11 @@
     }
     createParticles();
 
-    // Language toggle
+    // Lang toggle
     let currentLang = 'en';
     function toggleLang() {
       currentLang = currentLang === 'en' ? 'tc' : 'en';
       document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'EN / 中' : '中 / EN';
-      // Simple visual feedback — full bilingual toggle can be expanded
       document.querySelectorAll('.font-tc').forEach(el => {
         el.style.opacity = currentLang === 'tc' ? '1' : '';
       });
