@@ -187,16 +187,12 @@
   <!-- Navigation -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#hero" class="font-display text-lg text-sunset-500 tracking-wide">Odyssey</a>
+      <a href="#hero" class="font-display text-2xl md:text-3xl text-sunset-500 tracking-wide" style="font-weight: 700;">ODYSSEY</a>
       <div class="hidden md:flex items-center gap-8 text-sm font-body text-sand/60">
-        <a href="#mission" class="link-hover hover:text-sunset-400 transition-colors">Mission</a>
         <a href="#events" class="link-hover hover:text-sunset-400 transition-colors">Events</a>
         <a href="#members" class="link-hover hover:text-sunset-400 transition-colors">Cabinet</a>
         <a href="#links" class="link-hover hover:text-sunset-400 transition-colors">Documents</a>
       </div>
-      <button id="lang-toggle" class="text-xs font-body text-sand/40 hover:text-sunset-400 border border-sand/10 hover:border-sunset-500/30 rounded-full px-3 py-1 transition-all" onclick="toggleLang()">
-        EN / 中
-      </button>
     </div>
   </nav>
 
@@ -214,7 +210,9 @@
     <!-- Hero content -->
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
       <div class="reveal-scale mb-8">
-        <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-28 h-28 md:w-32 md:h-32 mx-auto drop-shadow-lg">
+        <div class="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden drop-shadow-lg border-2 border-sunset-500/20">
+          <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-full h-full object-cover">
+        </div>
       </div>
 
       <p class="font-body text-sm tracking-[0.3em] uppercase text-sand/60 mb-4 reveal">
@@ -303,26 +301,26 @@
 
       <!-- Pillars -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-        <div class="glass rounded-xl p-6 text-center reveal">
+        <a href="services.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
           <div class="text-2xl mb-3">🤝</div>
           <p class="font-display text-sm text-sunset-500 mb-1">Services</p>
           <p class="font-tc text-xs text-sand/40">服務</p>
-        </div>
-        <div class="glass rounded-xl p-6 text-center reveal">
+        </a>
+        <a href="activities.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
           <div class="text-2xl mb-3">🎭</div>
           <p class="font-display text-sm text-sunset-500 mb-1">Activities</p>
           <p class="font-tc text-xs text-sand/40">活動</p>
-        </div>
-        <div class="glass rounded-xl p-6 text-center reveal">
+        </a>
+        <a href="campus.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
           <div class="text-2xl mb-3">🏫</div>
           <p class="font-display text-sm text-sunset-500 mb-1">Campus</p>
           <p class="font-tc text-xs text-sand/40">校園改善</p>
-        </div>
-        <div class="glass rounded-xl p-6 text-center reveal">
+        </a>
+        <a href="joint-school.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
           <div class="text-2xl mb-3">🌏</div>
           <p class="font-display text-sm text-sunset-500 mb-1">Joint-School</p>
           <p class="font-tc text-xs text-sand/40">聯校活動</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -570,7 +568,7 @@
       </div>
 
       <div class="space-y-4">
-        <a href="#" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
+        <a href="https://docs.google.com/document/d/1kr4Og9IaL9a-IRYl8kwosoKnGv9g10jau74k4Kpf19c/edit?tab=t.0" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
           <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
             <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </div>
@@ -581,24 +579,35 @@
           <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
 
-        <a href="#" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
+        <a href="https://docs.google.com/spreadsheets/d/1q5GCyoquL36t5ocSmv5iVOwI0HquKoX4Sp9a1e9c-sA/edit?gid=0#gid=0" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
           <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
-            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </div>
           <div>
-            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Whole Year Activity Plan</p>
-            <p class="font-body text-xs text-sand/30">全年活動計劃 · Annual schedule</p>
+            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Welfare & Services</p>
+            <p class="font-body text-xs text-sand/30">福利 · Selling, lending, tutoring, cake & class tee orders</p>
           </div>
           <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
 
-        <a href="https://www.instagram.com/ssc._.odyssey/" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
+        <a href="https://docs.google.com/spreadsheets/d/1bLUyQO5piX8WcMVSqdEmxzhVv0X6oNS4NThcbnw66p8/edit?gid=0#gid=0" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
+          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
+            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Supporting Schools</p>
+            <p class="font-body text-xs text-sand/30">支援學校 · Internship programmes & resources</p>
+          </div>
+          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+
+        <a href="https://www.instagram.com/SSC._.Odyssey/" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
           <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
             <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
           </div>
           <div>
             <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Follow us on Instagram</p>
-            <p class="font-body text-xs text-sand/30">@ssc._.odyssey</p>
+            <p class="font-body text-xs text-sand/30">@SSC._.Odyssey</p>
           </div>
           <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
@@ -677,15 +686,7 @@
     }
     createParticles();
 
-    // Lang toggle
-    let currentLang = 'en';
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'tc' : 'en';
-      document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'EN / 中' : '中 / EN';
-      document.querySelectorAll('.font-tc').forEach(el => {
-        el.style.opacity = currentLang === 'tc' ? '1' : '';
-      });
-    }
+
   </script>
 
 </body>
