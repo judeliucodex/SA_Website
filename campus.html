@@ -11,8 +11,8 @@
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #2a4a5a 0%, #1e3a4a 50%, #162e3e 100%); color: #f0dcc0; }
-    .glass { background: rgba(91,143,168,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(91,143,168,0.15); }
-    .glass-warm { background: rgba(232,119,58,0.06); backdrop-filter: blur(20px); border: 1px solid rgba(232,119,58,0.2); }
+    .glass { background: rgba(91,143,168,0.08); border: 1px solid rgba(91,143,168,0.15); }
+    .glass-warm { background: rgba(232,119,58,0.06); border: 1px solid rgba(232,119,58,0.2); }
     .accent-line { width: 60px; height: 2px; background: linear-gradient(90deg, #e8773a, transparent); }
     .reveal { opacity: 0; transform: translateY(30px); }
   </style>
@@ -96,7 +96,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
     gsap.registerPlugin(ScrollTrigger);
-    document.querySelectorAll('.reveal').forEach(el => { gsap.set(el, { opacity: 0, y: 30 }); gsap.to(el, { scrollTrigger: { trigger: el, start: 'top 85%' }, opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }); });
+    document.querySelectorAll('.reveal').forEach(el => { gsap.set(el, { opacity: 0, y: 30 }); gsap.to(el, { scrollTrigger: { trigger: el, start: 'top 90%' }, opacity: 1, y: 0, duration: 0.25, ease: 'power3.out' }); });
   </script>
 </body>
 </html>
