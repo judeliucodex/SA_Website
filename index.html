@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cabinet Odyssey 2026–2027 | SSC Students' Association</title>
-  <meta name="description" content="St. Stephen's College Students' Association — Cabinet No.1 Odyssey 2026-2027. A journey of growth, challenges and discoveries.">
-  <meta property="og:title" content="Cabinet Odyssey 2026–2027">
+  <title>Cabinet Odyssey 2026-2027 | SSC Students' Association</title>
+  <meta name="description" content="St. Stephen's College Students' Association. Cabinet No.1 Odyssey 2026-2027. A journey of growth, challenges and discoveries.">
+  <meta property="og:title" content="Cabinet Odyssey 2026-2027">
   <meta property="og:image" content="assets/banner.jpg">
   <link rel="icon" href="assets/logo.png" type="image/png">
 
@@ -21,8 +21,8 @@
       --teal-deep: #1e3a4a;
       --orange: #e8773a;
       --cream: #f0dcc0;
-      --cream-dim: rgba(240,220,192,0.6);
-      --cream-faint: rgba(240,220,192,0.3);
+      --cream-dim: rgba(240,220,192,0.8);
+      --cream-faint: rgba(240,220,192,0.7);
     }
 
     html { background: var(--teal); scroll-behavior: smooth; }
@@ -51,12 +51,11 @@
       padding: 1.5rem 2rem;
       background: rgba(232,119,58,0.08);
       border: 1px solid rgba(232,119,58,0.2);
-      border-radius: 4px;
       display: inline-block;
     }
     .countdown-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--orange);
       margin-bottom: 1rem;
@@ -142,6 +141,13 @@
     }
     nav .links a:hover::after { width: 100%; }
 
+    #nav-sentinel {
+      position: absolute;
+      top: 0; left: 0;
+      width: 1px; height: 80px;
+      pointer-events: none;
+    }
+
     /* Hero */
     .hero {
       max-width: 100%;
@@ -175,13 +181,13 @@
       z-index: 2;
       text-align: center;
       width: 100%;
-      padding: 3rem 2rem 4.5rem;
+      padding: 2.5rem 2rem 3.5rem;
     }
     .hero-logo {
-      width: 120px; height: 120px;
+      width: 88px; height: 88px;
       border-radius: 50%;
       overflow: hidden;
-      margin: 0 auto 2rem;
+      margin: 0 auto 1.25rem;
       border: 1px solid rgba(232,119,58,0.3);
     }
     .hero-logo img {
@@ -189,77 +195,58 @@
       object-fit: cover;
     }
     .hero-subtitle {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       color: rgba(240,220,192,0.82);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 10vw, 7rem);
+      font-size: clamp(2.5rem, 6.5vw, 4.25rem);
       font-weight: 500;
       color: var(--orange);
       line-height: 1;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     .hero-tc {
       font-family: 'Noto Serif TC', serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: rgba(240,220,192,0.78);
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
-    .hero-tagline {
-      font-size: 1rem;
-      color: rgba(240,220,192,0.92);
-      max-width: 400px;
-      margin: 0 auto;
+    .hero-cta {
+      display: inline-block;
+      margin-bottom: 2.25rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-deep);
+      background: var(--orange);
+      padding: 0.85rem 1.9rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
     }
-    .scroll-hint {
-      position: absolute;
-      bottom: 3rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(180deg, var(--orange), transparent);
-      animation: scrollPulse 2s ease infinite;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
-    }
-
+    .hero-cta:hover { background: #f0873f; }
+    .hero-cta:active { transform: scale(0.98); }
     /* Sections */
     section {
-      padding: 4rem 2rem;
+      padding: 5rem 2rem;
       max-width: 900px;
       margin: 0 auto;
     }
-    .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 0.5rem;
-    }
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(1.9rem, 4.4vw, 3rem);
       font-weight: 500;
       color: var(--cream);
-      margin-bottom: 1rem;
+      margin-bottom: 2.5rem;
       line-height: 1.2;
     }
     .section-title em {
       color: var(--orange);
       font-style: italic;
-    }
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: var(--orange);
-      margin: 2rem 0;
+      padding-bottom: 0.12em;
     }
 
     .content-block {
@@ -287,7 +274,7 @@
       font-size: 0.9rem;
       padding-bottom: 2px;
       border-bottom: 1px solid var(--cream-faint);
-      transition: all 0.2s;
+      transition: color 0.2s, border-color 0.2s;
     }
     .pillar-link:hover {
       color: var(--orange);
@@ -369,6 +356,7 @@
       width: 160px;
     }
     .member-photo {
+      position: relative;
       width: 120px;
       height: 120px;
       border-radius: 50%;
@@ -377,11 +365,24 @@
       border: 1px solid rgba(232,119,58,0.2);
       background: rgba(232,119,58,0.05);
     }
+    .member-photo::before {
+      content: attr(data-initial);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.25rem;
+      color: rgba(240,220,192,0.3);
+    }
     .member-photo img {
+      position: relative;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+    .member-photo img.is-missing { display: none; }
     .member-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
@@ -424,23 +425,26 @@
     }
 
     /* Doc links */
-    .doc-links { margin-top: 2rem; }
+    .doc-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(240,220,192,0.09);
+      border: 1px solid rgba(240,220,192,0.09);
+    }
     .doc-link {
       display: block;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid rgba(240,220,192,0.08);
+      padding: 2rem 1.75rem;
+      background: var(--teal);
       text-decoration: none;
-      transition: all 0.2s;
+      transition: background 0.2s;
     }
-    .doc-link:first-child {
-      border-top: 1px solid rgba(240,220,192,0.08);
-    }
-    .doc-link:hover { padding-left: 1rem; }
+    .doc-link:hover { background: var(--teal-deep); }
     .doc-link-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--cream);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.4rem;
       transition: color 0.2s;
     }
     .doc-link:hover .doc-link-title { color: var(--orange); }
@@ -448,14 +452,8 @@
       font-size: 0.8rem;
       color: var(--cream-faint);
     }
-    .doc-link-arrow {
-      float: right;
-      color: var(--cream-faint);
-      transition: all 0.2s;
-    }
-    .doc-link:hover .doc-link-arrow {
-      color: var(--orange);
-      transform: translateX(4px);
+    @media (max-width: 640px) {
+      .doc-links { grid-template-columns: 1fr; }
     }
 
     /* Footer */
@@ -536,12 +534,28 @@
 
     @media (max-width: 768px) {
       nav .links { display: none; }
-      section { padding: 4rem 1.5rem; }
-      .members-grid { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 3.5rem 1.5rem; }
+      .cabinet-row { gap: 2rem; }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; }
     }
   </style>
 </head>
 <body>
+
+  <div id="nav-sentinel" aria-hidden="true"></div>
 
   <nav id="nav">
     <div class="inner">
@@ -555,6 +569,7 @@
     </div>
   </nav>
 
+  <main>
   <section class="hero">
     <div class="hero-bg">
       <img src="assets/banner.jpg" alt="">
@@ -565,10 +580,10 @@
       </div>
       <p class="hero-subtitle">St. Stephen's College Students' Association</p>
       <h1 class="hero-title">ODYSSEY</h1>
-      <p class="hero-tc">聖士提反書院學生會 · 一號內閣 · 2026–2027</p>
-            <p class="hero-tagline">A journey filled with growth, challenges and discoveries.</p>
+      <p class="hero-tc">聖士提反書院學生會<br>一號內閣 · 2026-2027</p>
+      <a href="https://docs.google.com/document/d/1kr4Og9IaL9a-IRYl8kwosoKnGv9g10jau74k4Kpf19c/edit?tab=t.0" target="_blank" class="hero-cta">Election Platform</a>
       <div class="countdown">
-        <p class="countdown-label">Voting Day</p>
+        <p class="countdown-label">Voting Day · 29 September 2026</p>
         <div class="countdown-timer" id="countdown">
           <div class="countdown-unit"><span class="countdown-num" id="days">--</span><p class="countdown-txt">Days</p></div>
           <span class="countdown-sep">:</span>
@@ -578,27 +593,20 @@
           <span class="countdown-sep">:</span>
           <div class="countdown-unit"><span class="countdown-num" id="secs">--</span><p class="countdown-txt">Secs</p></div>
         </div>
-        <p class="hero-tc" style="margin-top:1rem;font-size:0.85rem;">29 September 2026 · 投票日</p>
       </div>
     </div>
-    <div class="scroll-hint"></div>
   </section>
 
   <section id="mission">
-    <p class="section-label reveal">Our Name</p>
     <h2 class="section-title reveal">The Meaning of <em>Odyssey</em></h2>
-    <div class="divider reveal"></div>
 
     <div class="content-block reveal">
-      <p><strong class="serif" style="color:var(--orange);font-weight:500;">Odyssey</strong> — from the Greek — means a journey filled with growth, challenges and discoveries. It symbolises a voyage through harsh waters and storms, a test of strength and resilience.</p>
-      <p>Much like school life. Every student embarks on a journey of personal growth. We're here to support each step — personal problems, academic struggles, whatever comes up. We lead them to success.</p>
+      <p><strong class="serif" style="color:var(--orange);font-weight:500;">Odyssey</strong>, from the Greek, means a journey filled with growth, challenges and discoveries. It symbolises a voyage through harsh waters and storms, a test of strength and resilience.</p>
+      <p>Much like school life. Every student embarks on a journey of personal growth. We're here to support each step, whether it is personal problems, academic struggles, or something else entirely. We lead them to success.</p>
       <p class="tc">Odyssey 指的是一段充滿成長、挑戰與發現的旅程。這個源自希臘的名字，象徵著穿越險惡水域與風暴的艱難航程。</p>
       <p class="tc">我們期盼能陪伴學生走過這趟旅程的每一步，無論是個人或學業上的問題，都將竭盡所能提供支援，引領他們邁向成功的里程碑。</p>
     </div>
-
-    <p class="section-label reveal">Our Aim</p>
     <h2 class="section-title reveal">What We <em>Do</em></h2>
-    <div class="divider reveal"></div>
 
     <div class="content-block reveal">
       <p>Learning doesn't stop at the classroom. We know that. At Odyssey, students come first. We lead by example, listen when it matters, and push for change where it's needed.</p>
@@ -616,83 +624,79 @@
   </section>
 
   <section id="events">
-    <p class="section-label reveal">What We Do</p>
     <h2 class="section-title reveal">Key <em>Events</em></h2>
-    <div class="divider reveal"></div>
 
     <div class="timeline">
       <div class="timeline-item reveal">
         <p class="timeline-date">September</p>
         <h3 class="timeline-title">Promotion Activities</h3>
         <p class="timeline-desc">Cabinet introduction and campaign events to kick off the year.</p>
-        <p class="timeline-tc">宣傳活動 — 內閣介紹及競選活動。</p>
+        <p class="timeline-tc">宣傳活動：內閣介紹及競選活動。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">November</p>
         <h3 class="timeline-title">Bake Sale</h3>
         <p class="timeline-desc">Student-baked goods, raising funds for SA activities.</p>
-        <p class="timeline-tc">烘焙義賣 — 學生自製烘焙食品售賣。</p>
+        <p class="timeline-tc">烘焙義賣：學生自製烘焙食品售賣。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">December</p>
         <h3 class="timeline-title">Christmas Ball</h3>
         <p class="timeline-desc">Joint-school celebration with performances, games, festive activities.</p>
-        <p class="timeline-tc">聖誕舞會 — 聯校聖誕慶祝活動。</p>
+        <p class="timeline-tc">聖誕舞會：聯校聖誕慶祝活動。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">January</p>
         <h3 class="timeline-title">Spirit Week</h3>
         <p class="timeline-desc">Themed casual wear days, house competitions, school spirit.</p>
-        <p class="timeline-tc">精神周 — 主題便服日、社際比賽。</p>
+        <p class="timeline-tc">精神周：主題便服日、社際比賽。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">February</p>
         <h3 class="timeline-title">Students' Day</h3>
         <p class="timeline-desc">Sports, esports, society booths, talent show, food stalls.</p>
-        <p class="timeline-tc">學生日 — 體育及電競比賽、學會攤位、才藝表演。</p>
+        <p class="timeline-tc">學生日：體育及電競比賽、學會攤位、才藝表演。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">March</p>
         <h3 class="timeline-title">Mock-Paper Exchange</h3>
         <p class="timeline-desc">Inter-school past paper sharing for exam preparation.</p>
-        <p class="timeline-tc">試卷交換 — 聯校Past Paper交流。</p>
+        <p class="timeline-tc">試卷交換：聯校Past Paper交流。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">March</p>
         <h3 class="timeline-title">Mental Awareness Week</h3>
         <p class="timeline-desc">Workshops, talks, wellness activities for mental health.</p>
-        <p class="timeline-tc">心理健康周 — 工作坊、講座及健康活動。</p>
+        <p class="timeline-tc">心理健康周：工作坊、講座及健康活動。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">April</p>
         <h3 class="timeline-title">Easter Appreciation Day</h3>
         <p class="timeline-desc">Egg design workshops, scavenger hunts, casual wear day.</p>
-        <p class="timeline-tc">復活節感恩日 — 復活蛋設計工作坊、尋寶活動、便服日。</p>
+        <p class="timeline-tc">復活節感恩日：復活蛋設計工作坊、尋寶活動、便服日。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">May</p>
         <h3 class="timeline-title">Senior Sign Off</h3>
-        <p class="timeline-desc">Farewell for graduating seniors — memories, messages, appreciation.</p>
-        <p class="timeline-tc">畢業生送舊會 — 歡送畢業生。</p>
+        <p class="timeline-desc">Farewell for graduating seniors: memories, messages, appreciation.</p>
+        <p class="timeline-tc">畢業生送舊會：歡送畢業生。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">June</p>
         <h3 class="timeline-title">Eco-Friendly Week</h3>
         <p class="timeline-desc">Sustainability initiatives, recycling drives, environmental campaigns.</p>
-        <p class="timeline-tc">環保周 — 可持續發展倡议、回收活動。</p>
+        <p class="timeline-tc">環保周：可持續發展倡议、回收活動。</p>
       </div>
     </div>
   </section>
 
   <section id="members">
-    <p class="section-label reveal">The Team</p>
     <h2 class="section-title reveal">Our <em>Cabinet</em></h2>
-    <div class="divider reveal"></div>
 
     <div class="cabinet-list">
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/jovan.jpg" alt="Jovan"></div>
+          <div class="member-photo" data-initial="J"><img src="assets/members/jovan.jpg" alt="Jovan"></div>
           <p class="member-name">Jovan</p>
           <p class="member-role">President</p>
           <p class="member-tc">主席</p>
@@ -701,13 +705,13 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/jude.jpg" alt="Jude"></div>
+          <div class="member-photo" data-initial="J"><img src="assets/members/jude.jpg" alt="Jude"></div>
           <p class="member-name">Jude</p>
           <p class="member-role">Internal Vice-President</p>
           <p class="member-tc">內務副主席</p>
         </div>
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/chloe.jpg" alt="Chloe"></div>
+          <div class="member-photo" data-initial="C"><img src="assets/members/chloe.jpg" alt="Chloe"></div>
           <p class="member-name">Chloe</p>
           <p class="member-role">External Vice-President</p>
           <p class="member-tc">外務副主席</p>
@@ -716,13 +720,13 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/adriel.jpg" alt="Adriel"></div>
+          <div class="member-photo" data-initial="A"><img src="assets/members/adriel.jpg" alt="Adriel"></div>
           <p class="member-name">Adriel</p>
           <p class="member-role">Secretary (Internal)</p>
           <p class="member-tc">內務秘書</p>
         </div>
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/kaiser.jpg" alt="Kaiser"></div>
+          <div class="member-photo" data-initial="K"><img src="assets/members/kaiser.jpg" alt="Kaiser"></div>
           <p class="member-name">Kaiser</p>
           <p class="member-role">Secretary (External)</p>
           <p class="member-tc">外務秘書</p>
@@ -731,7 +735,7 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/trevor.jpg" alt="Trevor"></div>
+          <div class="member-photo" data-initial="T"><img src="assets/members/trevor.jpg" alt="Trevor"></div>
           <p class="member-name">Trevor</p>
           <p class="member-role">Treasurer</p>
           <p class="member-tc">司庫</p>
@@ -740,13 +744,13 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/lynn.jpg" alt="Lynn"></div>
+          <div class="member-photo" data-initial="L"><img src="assets/members/lynn.jpg" alt="Lynn"></div>
           <p class="member-name">Lynn</p>
           <p class="member-role">Recreational & Activities Board</p>
           <p class="member-tc">康樂及活動組</p>
         </div>
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/joshua.jpg" alt="Joshua"></div>
+          <div class="member-photo" data-initial="J"><img src="assets/members/joshua.jpg" alt="Joshua"></div>
           <p class="member-name">Joshua</p>
           <p class="member-role">Recreational & Activities Board</p>
           <p class="member-tc">康樂及活動組</p>
@@ -755,13 +759,13 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/katie.jpg" alt="Katie"></div>
+          <div class="member-photo" data-initial="K"><img src="assets/members/katie.jpg" alt="Katie"></div>
           <p class="member-name">Katie</p>
           <p class="member-role">Welfare Board</p>
           <p class="member-tc">福利組</p>
         </div>
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/sean.jpg" alt="Sean"></div>
+          <div class="member-photo" data-initial="S"><img src="assets/members/sean.jpg" alt="Sean"></div>
           <p class="member-name">Sean</p>
           <p class="member-role">Welfare Board</p>
           <p class="member-tc">福利組</p>
@@ -770,13 +774,13 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/avery.jpg" alt="Avery"></div>
+          <div class="member-photo" data-initial="A"><img src="assets/members/avery.jpg" alt="Avery"></div>
           <p class="member-name">Avery</p>
           <p class="member-role">Promotion Board</p>
           <p class="member-tc">宣傳組</p>
         </div>
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/rayna.jpg" alt="Rayna"></div>
+          <div class="member-photo" data-initial="R"><img src="assets/members/rayna.jpg" alt="Rayna"></div>
           <p class="member-name">Rayna</p>
           <p class="member-role">Promotion Board</p>
           <p class="member-tc">宣傳組</p>
@@ -785,7 +789,7 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/dave.jpg" alt="Dave"></div>
+          <div class="member-photo" data-initial="D"><img src="assets/members/dave.jpg" alt="Dave"></div>
           <p class="member-name">Dave</p>
           <p class="member-role">Public Relations Board</p>
           <p class="member-tc">公關組</p>
@@ -794,7 +798,7 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/manson.jpg" alt="Manson"></div>
+          <div class="member-photo" data-initial="M"><img src="assets/members/manson.jpg" alt="Manson"></div>
           <p class="member-name">Manson</p>
           <p class="member-role">Academic Board</p>
           <p class="member-tc">學術組</p>
@@ -803,7 +807,7 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/gabriel.jpg" alt="Gabriel"></div>
+          <div class="member-photo" data-initial="G"><img src="assets/members/gabriel.jpg" alt="Gabriel"></div>
           <p class="member-name">Gabriel</p>
           <p class="member-role">General Affairs Board</p>
           <p class="member-tc">總務組</p>
@@ -812,7 +816,7 @@
 
       <div class="cabinet-row reveal">
         <div class="cabinet-member">
-          <div class="member-photo"><img src="assets/members/isaac.jpg" alt="Isaac"></div>
+          <div class="member-photo" data-initial="I"><img src="assets/members/isaac.jpg" alt="Isaac"></div>
           <p class="member-name">Isaac</p>
           <p class="member-role">Student Coordinator</p>
           <p class="member-tc">學生協調員</p>
@@ -825,37 +829,32 @@
     <img src="assets/logo.png" alt="Odyssey">
     <h3>Cabinet <em>Odyssey</em></h3>
     <p class="tc">一號候選內閣 Odyssey</p>
-    <p class="tc" style="margin-top:0.5rem;font-size:0.75rem;">St. Stephen's College Students' Association 2026–2027</p>
+    <p class="tc" style="margin-top:0.5rem;font-size:0.75rem;">St. Stephen's College Students' Association 2026-2027</p>
   </div>
 
   <section id="docs">
-    <p class="section-label reveal">Resources</p>
     <h2 class="section-title reveal">Our <em>Documents</em></h2>
-    <div class="divider reveal"></div>
 
     <div class="doc-links">
       <a href="https://docs.google.com/document/d/1kr4Og9IaL9a-IRYl8kwosoKnGv9g10jau74k4Kpf19c/edit?tab=t.0" target="_blank" class="doc-link reveal">
-        <span class="doc-link-arrow">→</span>
-        <p class="doc-link-title">Election Platform 2026–2027</p>
+        <p class="doc-link-title">Election Platform 2026-2027</p>
         <p class="doc-link-sub">競選政綱 · Full policy document</p>
       </a>
       <a href="https://docs.google.com/spreadsheets/d/1q5GCyoquL36t5ocSmv5iVOwI0HquKoX4Sp9a1e9c-sA/edit?gid=0#gid=0" target="_blank" class="doc-link reveal">
-        <span class="doc-link-arrow">→</span>
         <p class="doc-link-title">Welfare & Services</p>
         <p class="doc-link-sub">福利 · Selling, lending, tutoring, cake & class tee orders</p>
       </a>
       <a href="https://docs.google.com/spreadsheets/d/1bLUyQO5piX8WcMVSqdEmxzhVv0X6oNS4NThcbnw66p8/edit?gid=0#gid=0" target="_blank" class="doc-link reveal">
-        <span class="doc-link-arrow">→</span>
         <p class="doc-link-title">Supporting Schools</p>
         <p class="doc-link-sub">支援學校 · Internship programmes & resources</p>
       </a>
       <a href="https://www.instagram.com/SSC._.Odyssey/" target="_blank" class="doc-link reveal">
-        <span class="doc-link-arrow">→</span>
         <p class="doc-link-title">Instagram</p>
         <p class="doc-link-sub">@SSC._.Odyssey</p>
       </a>
     </div>
   </section>
+  </main>
 
   <footer>
     <div class="footer-inner">
@@ -872,7 +871,7 @@
       <div class="footer-contact">
         <a href="https://www.instagram.com/SSC._.Odyssey/" target="_blank">@SSC._.Odyssey</a>
         <p class="tc">聖士提反書院學生會</p>
-        <p>2026–2027</p>
+        <p>2026-2027</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -882,8 +881,17 @@
 
   <script>
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 80);
+    const sentinel = document.getElementById('nav-sentinel');
+    if (nav && sentinel) {
+      new IntersectionObserver(([entry]) => {
+        nav.classList.toggle('scrolled', !entry.isIntersecting);
+      }).observe(sentinel);
+    }
+
+    document.querySelectorAll('.member-photo img').forEach(img => {
+      const hide = () => img.classList.add('is-missing');
+      img.addEventListener('error', hide, { once: true });
+      if (img.complete && img.naturalWidth === 0) hide();
     });
 
     const reveals = document.querySelectorAll('.reveal');
