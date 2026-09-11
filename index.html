@@ -6,1190 +6,607 @@
   <title>Cabinet Odyssey 2026–2027 | SSC Students' Association</title>
   <meta name="description" content="St. Stephen's College Students' Association — Cabinet No.1 Odyssey 2026-2027. A journey of growth, challenges and discoveries.">
   <meta property="og:title" content="Cabinet Odyssey 2026–2027">
-  <meta property="og:description" content="聖士提反書院學生會 — 一號候選內閣 Odyssey">
   <meta property="og:image" content="assets/banner.jpg">
-  <meta property="og:type" content="website">
   <link rel="icon" href="assets/logo.png" type="image/png">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ocean: { 900: '#2a4a5a', 800: '#3d6b7e', 700: '#4a7c8e', 600: '#5b8fa8', 500: '#6fa3b8', 400: '#8fb8c8', 300: '#b0d0dc' },
-            sunset: { 500: '#e8773a', 400: '#f09050', 600: '#d06830' },
-            sand: '#f0dcc0',
-            sandlight: '#f8efe0',
-          },
-          fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            body: ['Inter', 'sans-serif'],
-            tc: ['"Noto Serif TC"', 'serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { background: #2a4a5a; }
+
+    :root {
+      --teal: #2a4a5a;
+      --teal-deep: #1e3a4a;
+      --orange: #e8773a;
+      --cream: #f0dcc0;
+      --cream-dim: rgba(240,220,192,0.6);
+      --cream-faint: rgba(240,220,192,0.3);
+    }
+
+    html { background: var(--teal); scroll-behavior: smooth; }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: #2a4a5a;
-      color: #f0dcc0;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--teal);
+      color: var(--cream);
       overflow-x: hidden;
-    }
-    html { scroll-behavior: smooth; }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #2a4a5a; }
-    ::-webkit-scrollbar-thumb { background: #e8773a66; border-radius: 3px; }
-
-    /* Cards - no glassmorphism, solid subtle bg */
-    .glass {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .glass-warm {
-      background: rgba(232,119,58,0.08);
-      border: 1px solid rgba(232,119,58,0.15);
+      font-weight: 300;
+      line-height: 1.7;
     }
 
-    .hero-gradient {
-      background: linear-gradient(180deg,
-        rgba(42,74,90,0.1) 0%,
-        rgba(30,58,74,0.4) 50%,
-        rgba(22,46,62,0.95) 100%
-      );
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--teal); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    .tc { font-family: 'Noto Serif TC', serif; }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      padding: 1.5rem 2rem;
+      transition: background 0.3s ease;
+    }
+    nav.scrolled {
+      background: rgba(30,58,74,0.95);
+      padding: 1rem 2rem;
+    }
+    nav .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 0.05em;
+    }
+    nav .links {
+      display: flex;
+      gap: 2.5rem;
+      font-size: 0.85rem;
+      color: var(--cream-dim);
+    }
+    nav .links a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+    nav .links a:hover { color: var(--orange); }
+    nav .links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--orange);
+      transition: width 0.2s;
+    }
+    nav .links a:hover::after { width: 100%; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(42,74,90,0.1) 0%, rgba(30,58,74,0.5) 60%, var(--teal) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero-logo {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 2rem;
+      border: 1px solid rgba(232,119,58,0.3);
+    }
+    .hero-logo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero-subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 500;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .hero-tc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      color: var(--cream-faint);
+      margin-bottom: 2rem;
+    }
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--cream-dim);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(180deg, var(--orange), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
     }
 
-    .accent-line {
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .section-title em {
+      color: var(--orange);
+      font-style: italic;
+    }
+    .divider {
       width: 40px;
-      height: 2px;
-      background: #e8773a;
+      height: 1px;
+      background: var(--orange);
+      margin: 2rem 0;
+    }
+
+    .content-block {
+      margin-bottom: 3rem;
+    }
+    .content-block p {
+      margin-bottom: 1.5rem;
+      color: var(--cream-dim);
+    }
+    .content-block .tc {
+      color: var(--cream-faint);
+      font-size: 0.95rem;
+    }
+
+    /* Pillar links - inline, no cards */
+    .pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      margin-top: 3rem;
+    }
+    .pillar-link {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--cream-faint);
+      transition: all 0.2s;
+    }
+    .pillar-link:hover {
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+    .pillar-link .tc {
+      font-size: 0.75rem;
+      color: var(--cream-faint);
+      margin-left: 0.5rem;
     }
 
     /* Timeline */
-    .timeline-line {
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
       position: absolute;
-      left: 50%;
+      left: 0;
       top: 0;
       bottom: 0;
       width: 1px;
-      background: rgba(232,119,58,0.2);
-      transform: translateX(-50%);
+      background: linear-gradient(180deg, transparent, var(--orange) 20%, var(--orange) 80%, transparent);
+      opacity: 0.3;
     }
-    .timeline-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #e8773a;
-      border: 2px solid #2a4a5a;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
     }
-    @media (max-width: 768px) {
-      .timeline-line { left: 20px; }
-      .timeline-dot { left: 20px; }
-    }
-
-    /* Fast reveal - no transform, just opacity */
-    .reveal { opacity: 0; }
-    .reveal-left { opacity: 0; }
-    .reveal-right { opacity: 0; }
-    .reveal-scale { opacity: 0; }
-
-    /* Nav */
-    .nav-scrolled {
-      background: rgba(30,58,74,0.95) !important;
-      border-bottom: 1px solid rgba(232,119,58,0.1) !important;
-    }
-
-    .link-hover { position: relative; display: inline-block; }
-    .link-hover::after {
+    .timeline-item::before {
       content: '';
       position: absolute;
-      bottom: -2px; left: 0;
-      width: 0; height: 1px;
-      background: #e8773a;
-      transition: width 0.2s ease;
+      left: -2rem;
+      top: 0.5rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      transform: translateX(-50%);
     }
-    .link-hover:hover::after { width: 100%; }
+    .timeline-date {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.25rem;
+    }
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--cream-dim);
+    }
+    .timeline-tc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.8rem;
+      color: var(--cream-faint);
+      margin-top: 0.5rem;
+    }
 
-    .member-card { transition: transform 0.2s ease; }
-    .member-card:hover { transform: translateY(-2px); }
+    /* Members */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .member { text-align: center; }
+    .member-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--cream);
+    }
+    .member-tc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.7rem;
+      color: var(--cream-faint);
+    }
+    .member-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--cream-faint);
+      margin-top: 2rem;
+    }
+
+    /* Logo */
+    .logo-showcase {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .logo-showcase img {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(232,119,58,0.2);
+    }
+    .logo-showcase h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .logo-showcase h3 em { color: var(--orange); }
+    .logo-showcase .tc {
+      font-size: 0.85rem;
+      color: var(--cream-faint);
+    }
+
+    /* Doc links */
+    .doc-links { margin-top: 2rem; }
+    .doc-link {
+      display: block;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(240,220,192,0.08);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .doc-link:first-child {
+      border-top: 1px solid rgba(240,220,192,0.08);
+    }
+    .doc-link:hover { padding-left: 1rem; }
+    .doc-link-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--cream);
+      margin-bottom: 0.25rem;
+      transition: color 0.2s;
+    }
+    .doc-link:hover .doc-link-title { color: var(--orange); }
+    .doc-link-sub {
+      font-size: 0.8rem;
+      color: var(--cream-faint);
+    }
+    .doc-link-arrow {
+      float: right;
+      color: var(--cream-faint);
+      transition: all 0.2s;
+    }
+    .doc-link:hover .doc-link-arrow {
+      color: var(--orange);
+      transform: translateX(4px);
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(240,220,192,0.05);
+    }
+    footer .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: var(--orange);
+      opacity: 0.5;
+      margin-bottom: 0.5rem;
+    }
+    footer .info {
+      font-size: 0.75rem;
+      color: var(--cream-faint);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .reveal.visible { opacity: 1; }
+
+    @media (max-width: 768px) {
+      nav .links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .members-grid { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
-<body class="">
+<body>
 
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#hero" class="font-display text-2xl md:text-3xl text-sunset-500 tracking-wide" style="font-weight: 700;">ODYSSEY</a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-body text-sand/60">
-        <a href="#events" class="link-hover hover:text-sunset-400 transition-colors">Events</a>
-        <a href="#members" class="link-hover hover:text-sunset-400 transition-colors">Cabinet</a>
-        <a href="#links" class="link-hover hover:text-sunset-400 transition-colors">Documents</a>
+  <nav id="nav">
+    <div class="inner">
+      <a href="#" class="brand">ODYSSEY</a>
+      <div class="links">
+        <a href="#mission">Mission</a>
+        <a href="#events">Events</a>
+        <a href="#members">Cabinet</a>
+        <a href="#docs">Documents</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HERO / BANNER ============ -->
-  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Banner background -->
-    <div class="absolute inset-0">
-      <img src="assets/banner.jpg" alt="" class="w-full h-full object-cover">
-      <div class="hero-gradient absolute inset-0"></div>
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="assets/banner.jpg" alt="">
+    </div>
+    <div class="hero-content">
+      <div class="hero-logo">
+        <img src="assets/logo.png" alt="Odyssey">
+      </div>
+      <p class="hero-subtitle">St. Stephen's College Students' Association</p>
+      <h1 class="hero-title">ODYSSEY</h1>
+      <p class="hero-tc">聖士提反書院學生會 · 一號內閣 · 2026–2027</p>
+      <p class="hero-tagline">A journey filled with growth, challenges and discoveries.</p>
+    </div>
+    <div class="scroll-hint"></div>
+  </section>
+
+  <section id="mission">
+    <p class="section-label reveal">Our Name</p>
+    <h2 class="section-title reveal">The Meaning of <em>Odyssey</em></h2>
+    <div class="divider reveal"></div>
+
+    <div class="content-block reveal">
+      <p><strong class="serif" style="color:var(--orange);font-weight:500;">Odyssey</strong> — from the Greek — means a journey filled with growth, challenges and discoveries. It symbolises a voyage through harsh waters and storms, a test of strength and resilience.</p>
+      <p>Much like school life. Every student embarks on a journey of personal growth. We're here to support each step — personal problems, academic struggles, whatever comes up. We lead them to success.</p>
+      <p class="tc">Odyssey 指的是一段充滿成長、挑戰與發現的旅程。這個源自希臘的名字，象徵著穿越險惡水域與風暴的艱難航程。</p>
+      <p class="tc">我們期盼能陪伴學生走過這趟旅程的每一步，無論是個人或學業上的問題，都將竭盡所能提供支援，引領他們邁向成功的里程碑。</p>
     </div>
 
+    <p class="section-label reveal">Our Aim</p>
+    <h2 class="section-title reveal">What We <em>Do</em></h2>
+    <div class="divider reveal"></div>
 
+    <div class="content-block reveal">
+      <p>Learning doesn't stop at the classroom. We know that. At Odyssey, students come first. We lead by example, listen when it matters, and push for change where it's needed.</p>
+      <p>We're the bridge between students and the administration. Our job: make this year unforgettable.</p>
+      <p class="tc">我們深知，學生時代是成長、學習與共享體驗的重要篇章，其意義遠遠超越了課堂的範疇。</p>
+      <p class="tc">我們將每位學生的興趣放在首位。我們致力於以包容的態度引領、以謙遜的態度傾聽，並作為學生群體與校方管理層之間不可或缺的溝通橋樑。</p>
+    </div>
 
-    <!-- Hero content -->
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="reveal-scale mb-8">
-        <div class="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden drop-shadow-lg border-2 border-sunset-500/20">
-          <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-full h-full object-cover">
-        </div>
+    <div class="pillars reveal">
+      <a href="services.html" class="pillar-link">Services <span class="tc">服務</span></a>
+      <a href="activities.html" class="pillar-link">Activities <span class="tc">活動</span></a>
+      <a href="campus.html" class="pillar-link">Campus <span class="tc">校園改善</span></a>
+      <a href="joint-school.html" class="pillar-link">Joint-School <span class="tc">聯校活動</span></a>
+    </div>
+  </section>
+
+  <section id="events">
+    <p class="section-label reveal">What We Do</p>
+    <h2 class="section-title reveal">Key <em>Events</em></h2>
+    <div class="divider reveal"></div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <p class="timeline-date">Sep – Oct</p>
+        <h3 class="timeline-title">Easter Appreciation Day</h3>
+        <p class="timeline-desc">Egg design workshops, scavenger hunts, casual wear day.</p>
+        <p class="timeline-tc">復活節感恩日 — 復活蛋設計工作坊、尋寶活動、便服日。</p>
       </div>
-
-      <p class="font-body text-sm tracking-[0.3em] uppercase text-sand/60 mb-4 reveal">
-        St. Stephen's College Students' Association
-      </p>
-
-      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-sunset-500 mb-4 reveal" style="line-height: 1.1; text-shadow: 0 2px 40px rgba(232,119,58,0.3);">
-        ODYSSEY
-      </h1>
-
-      <p class="font-tc text-lg md:text-xl text-sand/50 mb-8 reveal">
-        聖士提反書院學生會 · 一號內閣 Odyssey · 2026–2027
-      </p>
-
-      <div class="accent-line mx-auto reveal"></div>
-
-      <p class="font-body text-base md:text-lg text-sand/60 mt-8 max-w-xl mx-auto reveal" style="font-weight: 300;">
-        A journey filled with growth, challenges and discoveries.
-      </p>
-
-      <!-- Scroll indicator -->
-      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 reveal">
-        <div class="w-5 h-8 border border-sand/20 rounded-full flex items-start justify-center p-1">
-          <div class="w-1 h-2 bg-sunset-500 rounded-full animate-bounce"></div>
-        </div>
+      <div class="timeline-item reveal">
+        <p class="timeline-date">Oct – Nov</p>
+        <h3 class="timeline-title">Mental Awareness Week</h3>
+        <p class="timeline-desc">Workshops, talks, wellness activities for mental health.</p>
+        <p class="timeline-tc">心理健康周 — 工作坊、講座及健康活動。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <p class="timeline-date">Nov</p>
+        <h3 class="timeline-title">Spirit Week</h3>
+        <p class="timeline-desc">Themed casual wear days, house competitions, school spirit.</p>
+        <p class="timeline-tc">精神周 — 主題便服日、社際比賽。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <p class="timeline-date">Dec</p>
+        <h3 class="timeline-title">Eco-Friendly Week</h3>
+        <p class="timeline-desc">Sustainability initiatives, recycling drives, environmental campaigns.</p>
+        <p class="timeline-tc">環保周 — 可持續發展倡议、回收活動。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <p class="timeline-date">Dec</p>
+        <h3 class="timeline-title">Christmas Ball</h3>
+        <p class="timeline-desc">Joint-school celebration with performances, games, festive activities.</p>
+        <p class="timeline-tc">聖誕舞會 — 聯校聖誕慶祝活動。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <p class="timeline-date">Jan – Feb</p>
+        <h3 class="timeline-title">Bake Sale</h3>
+        <p class="timeline-desc">Student-baked goods, raising funds for SA activities.</p>
+        <p class="timeline-tc">烘焙義賣 — 學生自製烘焙食品售賣。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <p class="timeline-date">Mar – Apr</p>
+        <h3 class="timeline-title">Students' Day</h3>
+        <p class="timeline-desc">Sports, esports, society booths, talent show, food stalls.</p>
+        <p class="timeline-tc">學生日 — 體育及電競比賽、學會攤位、才藝表演。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <p class="timeline-date">Jun – Jul</p>
+        <h3 class="timeline-title">Senior Sign Off</h3>
+        <p class="timeline-desc">Farewell for graduating seniors — memories, messages, appreciation.</p>
+        <p class="timeline-tc">畢業生送舊會 — 歡送畢業生。</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ NAME MEANING & MISSION ============ -->
-  <section id="mission" class="relative py-32 px-6">
-    <div class="max-w-5xl mx-auto">
+  <section id="members">
+    <p class="section-label reveal">The Team</p>
+    <h2 class="section-title reveal">Our <em>Cabinet</em></h2>
+    <div class="divider reveal"></div>
 
-      <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">Our Name</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">The Meaning of <span class="text-sunset-500 italic">Odyssey</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
+    <div class="members-grid reveal">
+      <div class="member"><p class="member-role">Chairman</p><p class="member-tc">主席</p></div>
+      <div class="member"><p class="member-role">Vice-Chairman</p><p class="member-tc">副主席</p></div>
+      <div class="member"><p class="member-role">Secretary</p><p class="member-tc">秘書</p></div>
+      <div class="member"><p class="member-role">Treasurer</p><p class="member-tc">司庫</p></div>
+      <div class="member"><p class="member-role">Publicity</p><p class="member-tc">公關</p></div>
+      <div class="member"><p class="member-role">Activities</p><p class="member-tc">活動</p></div>
+      <div class="member"><p class="member-role">Services</p><p class="member-tc">服務</p></div>
+      <div class="member"><p class="member-role">Committee</p><p class="member-tc">委員</p></div>
+    </div>
+    <p class="member-note reveal">Member names to be updated · 成員名字待更新</p>
+  </section>
 
-      <div class="grid md:grid-cols-2 gap-12 mb-24">
-        <div class="reveal-left">
-          <p class="font-body text-base leading-relaxed text-sand/70" style="font-weight: 300;">
-            <span class="text-sunset-500 font-display text-lg italic">Odyssey</span> refers to a journey filled with growth, challenges and discoveries. This word originates from Greek and symbolises a challenging voyage through harsh waters and storms — a true test of strength and resilience.
-          </p>
-          <p class="font-body text-base leading-relaxed text-sand/70 mt-4" style="font-weight: 300;">
-            Much like school life, this is an adventure where every student embarks on a journey of personal growth, discovery, and resilience. We hope to support our students through each step of this voyage, no matter it being personal or academic problems, and lead them to success.
-          </p>
-        </div>
-        <div class="reveal-right">
-          <p class="font-tc text-base leading-loose text-sand/50">
-            Odyssey 指的是一段充滿成長、挑戰與發現的旅程。這個源自希臘的名字，象徵著穿越險惡水域與風暴的艱難航程，更是對力量與韌性的真正考驗。
-          </p>
-          <p class="font-tc text-base leading-loose text-sand/50 mt-4">
-            我們相信，這恰如我們的校園生活：一場冒險，每位學生都將踏上這段個人成長的旅程。我們期盼能陪伴學生走過這趟旅程的每一步，無論是個人或學業上的問題，都將竭盡所能提供支援，引領他們邁向成功的里程碑。
-          </p>
-        </div>
-      </div>
+  <div class="logo-showcase reveal">
+    <img src="assets/logo.png" alt="Odyssey">
+    <h3>Cabinet <em>Odyssey</em></h3>
+    <p class="tc">一號候選內閣 Odyssey</p>
+    <p class="tc" style="margin-top:0.5rem;font-size:0.75rem;">St. Stephen's College Students' Association 2026–2027</p>
+  </div>
 
-      <!-- Mission -->
-      <div class="text-center mb-16">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">Our Aim</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Our <span class="text-sunset-500 italic">Mission</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
+  <section id="docs">
+    <p class="section-label reveal">Resources</p>
+    <h2 class="section-title reveal">Our <em>Documents</em></h2>
+    <div class="divider reveal"></div>
 
-      <div class="glass-warm rounded-2xl p-8 md:p-12 reveal-scale">
-        <div class="grid md:grid-cols-2 gap-10">
-          <div>
-            <p class="font-body text-base leading-relaxed text-sand/70" style="font-weight: 300;">
-              We understand that as a student, learning is a massive chapter of growth, learning and shared experiences that goes far beyond the classroom.
-            </p>
-            <p class="font-body text-base leading-relaxed text-sand/70 mt-4" style="font-weight: 300;">
-              At Odyssey, we put students' interests first. We are committed to leading by example, listening humbly and doing change where needed, acting as the vital liaison between the student body and the school administration. Our goal is to make this school year unforgettable for every student.
-            </p>
-          </div>
-          <div>
-            <p class="font-tc text-base leading-loose text-sand/50">
-              我們深知，學生時代是成長、學習與共享體驗的重要篇章，其意義遠遠超越了課堂的範疇。
-            </p>
-            <p class="font-tc text-base leading-loose text-sand/50 mt-4">
-              我們將每位學生的興趣放在首位，以此打造一段成功且難忘的旅程。我們致力於以包容的態度引領、以謙遜的態度傾聽、以開放的態度倡導，並作為學生群體與校方管理層之間不可或缺的溝通橋樑。
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pillars -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-        <a href="services.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
-          <div class="text-2xl mb-3">🤝</div>
-          <p class="font-display text-sm text-sunset-500 mb-1">Services</p>
-          <p class="font-tc text-xs text-sand/40">服務</p>
-        </a>
-        <a href="activities.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
-          <div class="text-2xl mb-3">🎭</div>
-          <p class="font-display text-sm text-sunset-500 mb-1">Activities</p>
-          <p class="font-tc text-xs text-sand/40">活動</p>
-        </a>
-        <a href="campus.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
-          <div class="text-2xl mb-3">🏫</div>
-          <p class="font-display text-sm text-sunset-500 mb-1">Campus</p>
-          <p class="font-tc text-xs text-sand/40">校園改善</p>
-        </a>
-        <a href="joint-school.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
-          <div class="text-2xl mb-3">🌏</div>
-          <p class="font-display text-sm text-sunset-500 mb-1">Joint-School</p>
-          <p class="font-tc text-xs text-sand/40">聯校活動</p>
-        </a>
-      </div>
+    <div class="doc-links">
+      <a href="https://docs.google.com/document/d/1kr4Og9IaL9a-IRYl8kwosoKnGv9g10jau74k4Kpf19c/edit?tab=t.0" target="_blank" class="doc-link reveal">
+        <span class="doc-link-arrow">→</span>
+        <p class="doc-link-title">Election Platform 2026–2027</p>
+        <p class="doc-link-sub">競選政綱 · Full policy document</p>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1q5GCyoquL36t5ocSmv5iVOwI0HquKoX4Sp9a1e9c-sA/edit?gid=0#gid=0" target="_blank" class="doc-link reveal">
+        <span class="doc-link-arrow">→</span>
+        <p class="doc-link-title">Welfare & Services</p>
+        <p class="doc-link-sub">福利 · Selling, lending, tutoring, cake & class tee orders</p>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1bLUyQO5piX8WcMVSqdEmxzhVv0X6oNS4NThcbnw66p8/edit?gid=0#gid=0" target="_blank" class="doc-link reveal">
+        <span class="doc-link-arrow">→</span>
+        <p class="doc-link-title">Supporting Schools</p>
+        <p class="doc-link-sub">支援學校 · Internship programmes & resources</p>
+      </a>
+      <a href="https://www.instagram.com/SSC._.Odyssey/" target="_blank" class="doc-link reveal">
+        <span class="doc-link-arrow">→</span>
+        <p class="doc-link-title">Instagram</p>
+        <p class="doc-link-sub">@SSC._.Odyssey</p>
+      </a>
     </div>
   </section>
 
-  <!-- ============ EVENTS TIMELINE ============ -->
-  <section id="events" class="relative py-32 px-6">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">What We Do</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Key <span class="text-sunset-500 italic">Events</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
-
-      <div class="relative">
-        <div class="timeline-line"></div>
-
-        <!-- Event 1 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Sep – Oct</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Easter Appreciation Day</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Egg design workshops, scavenger hunts, and Easter-themed casual wear day.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">復活節感恩日 — 復活蛋設計工作坊、尋寶活動、復活節便服日。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 2 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Oct – Nov</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Mental Awareness Week</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Promoting mental health through workshops, talks, and wellness activities.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">心理健康周 — 透過工作坊、講座及健康活動推廣心理健康。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 3 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Nov</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Spirit Week</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Themed casual wear days, house competitions, and school spirit events.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">精神周 — 主題便服日、社際比賽及校內精神活動。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 4 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Dec</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Eco-Friendly Week</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Sustainability initiatives, recycling drives, and environmental awareness campaigns.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">環保周 — 可持續發展倡议、回收活動及環保意識推廣。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 5 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Dec</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Christmas Ball</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Joint-school Christmas celebration with performances, games, and festive activities.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">聖誕舞會 — 聯校聖誕慶祝活動，包括表演、遊戲及節日活動。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 6 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Jan – Feb</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Bake Sale</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Student-baked goods sale, raising funds for SA activities and welfare.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">烘焙義賣 — 學生自製烘焙食品售賣，為學生活動及福利籌款。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 7 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Mar – Apr</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Students' Day</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Sports & esports competitions, society booths, talent show, and food stalls.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">學生日 — 體育及電競比賽、學會攤位、才藝表演及美食攤位。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 8 -->
-        <div class="relative">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Jun – Jul</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Senior Sign Off</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">A farewell celebration for graduating seniors — memories, messages, and appreciation.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">畢業生送舊會 — 為畢業生舉行的歡送慶祝活動，留下回憶與祝福。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MEMBERS ============ -->
-  <section id="members" class="relative py-32 px-6">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">The Team</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Our <span class="text-sunset-500 italic">Cabinet</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">C</span>
-          </div>
-          <p class="font-display text-sm text-sand">Chairman</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">主席</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">VC</span>
-          </div>
-          <p class="font-display text-sm text-sand">Vice-Chairman</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">副主席</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">S</span>
-          </div>
-          <p class="font-display text-sm text-sand">Secretary</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">秘書</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">T</span>
-          </div>
-          <p class="font-display text-sm text-sand">Treasurer</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">司庫</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">P</span>
-          </div>
-          <p class="font-display text-sm text-sand">Publicity</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">公關</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">A</span>
-          </div>
-          <p class="font-display text-sm text-sand">Activities</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">活動</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">Sv</span>
-          </div>
-          <p class="font-display text-sm text-sand">Services</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">服務</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">+</span>
-          </div>
-          <p class="font-display text-sm text-sand">Committee</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">委員</p>
-        </div>
-
-      </div>
-
-      <p class="text-center mt-8 font-body text-xs text-sand/20 reveal">
-        Member names to be updated · 成員名字待更新
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ LOGO SECTION ============ -->
-  <section id="logo-section" class="relative py-24 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="glass-warm rounded-3xl p-12 md:p-16 reveal-scale">
-        <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 drop-shadow-lg">
-        <h3 class="font-display text-2xl md:text-3xl text-sand mb-2">Cabinet <span class="text-sunset-500 italic">Odyssey</span></h3>
-        <p class="font-tc text-sm text-sand/40">一號候選內閣 Odyssey</p>
-        <p class="font-body text-xs text-sand/20 mt-4">St. Stephen's College Students' Association 2026–2027</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ LINKS / DOCUMENTS ============ -->
-  <section id="links" class="relative py-32 px-6">
-    <div class="max-w-3xl mx-auto">
-
-      <div class="text-center mb-16">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">Resources</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Our <span class="text-sunset-500 italic">Documents</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
-
-      <div class="space-y-4">
-        <a href="https://docs.google.com/document/d/1kr4Og9IaL9a-IRYl8kwosoKnGv9g10jau74k4Kpf19c/edit?tab=t.0" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
-            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <div>
-            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Election Platform 2026–2027</p>
-            <p class="font-body text-xs text-sand/30">競選政綱 · Full policy document</p>
-          </div>
-          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-
-        <a href="https://docs.google.com/spreadsheets/d/1q5GCyoquL36t5ocSmv5iVOwI0HquKoX4Sp9a1e9c-sA/edit?gid=0#gid=0" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
-            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <div>
-            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Welfare & Services</p>
-            <p class="font-body text-xs text-sand/30">福利 · Selling, lending, tutoring, cake & class tee orders</p>
-          </div>
-          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-
-        <a href="https://docs.google.com/spreadsheets/d/1bLUyQO5piX8WcMVSqdEmxzhVv0X6oNS4NThcbnw66p8/edit?gid=0#gid=0" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
-            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <div>
-            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Supporting Schools</p>
-            <p class="font-body text-xs text-sand/30">支援學校 · Internship programmes & resources</p>
-          </div>
-          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-
-        <a href="https://www.instagram.com/SSC._.Odyssey/" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
-            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          </div>
-          <div>
-            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Follow us on Instagram</p>
-            <p class="font-body text-xs text-sand/30">@SSC._.Odyssey</p>
-          </div>
-          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="relative py-16 px-6 border-t border-sand/5">
-    <div class="max-w-5xl mx-auto text-center">
-      <p class="font-display text-lg text-sunset-500/50 mb-2">Cabinet Odyssey</p>
-      <p class="font-body text-xs text-sand/20">St. Stephen's College Students' Association · 2026–2027</p>
-      <p class="font-tc text-xs text-sand/10 mt-2">聖士提反書院學生會</p>
-    </div>
+  <footer>
+    <p class="brand">Cabinet Odyssey</p>
+    <p class="info">St. Stephen's College Students' Association · 2026–2027</p>
+    <p class="info tc" style="margin-top:0.5rem;">聖士提反書院學生會</p>
   </footer>
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
   <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Fast hero reveal - immediate, no delay
-    gsap.to('.reveal, .reveal-left, .reveal-right, .reveal-scale', {
-      opacity: 1, duration: 0.3, ease: 'power2.out', stagger: 0.05
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
     });
 
-    // Scroll animations - fast, no transform
-    function setupScrollAnimations() {
-      const selectors = '#mission, #events, #members, #logo-section, #links';
-      document.querySelectorAll(selectors + ' .reveal, ' + selectors + ' .reveal-left, ' + selectors + ' .reveal-right, ' + selectors + ' .reveal-scale').forEach(el => {
-        gsap.set(el, { opacity: 0 });
-        gsap.to(el, {
-          scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' },
-          opacity: 1, duration: 0.25, ease: 'power2.out'
-        });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
-    }
-    setupScrollAnimations(); // No setTimeout - immediate
-
-    // Navbar scroll
-    const navbar = document.getElementById('navbar');
-    ScrollTrigger.create({
-      start: 'top -80', end: 99999,
-      toggleClass: { className: 'nav-scrolled', targets: navbar },
-    });
-
-  </script>
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { background: #2a4a5a; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #2a4a5a;
-      color: #f0dcc0;
-      overflow-x: hidden;
-    }
-    html { scroll-behavior: smooth; }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #2a4a5a; }
-    ::-webkit-scrollbar-thumb { background: #e8773a66; border-radius: 3px; }
-
-    /* Cards - no glassmorphism, solid subtle bg */
-    .glass {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .glass-warm {
-      background: rgba(232,119,58,0.08);
-      border: 1px solid rgba(232,119,58,0.15);
-    }
-
-    .hero-gradient {
-      background: linear-gradient(180deg,
-        rgba(42,74,90,0.1) 0%,
-        rgba(30,58,74,0.4) 50%,
-        rgba(22,46,62,0.95) 100%
-      );
-    }
-
-    .accent-line {
-      width: 40px;
-      height: 2px;
-      background: #e8773a;
-    }
-
-    /* Timeline */
-    .timeline-line {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: rgba(232,119,58,0.2);
-      transform: translateX(-50%);
-    }
-    .timeline-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #e8773a;
-      border: 2px solid #2a4a5a;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
-    @media (max-width: 768px) {
-      .timeline-line { left: 20px; }
-      .timeline-dot { left: 20px; }
-    }
-
-    /* Fast reveal - no transform, just opacity */
-    .reveal { opacity: 0; }
-    .reveal-left { opacity: 0; }
-    .reveal-right { opacity: 0; }
-    .reveal-scale { opacity: 0; }
-
-    /* Nav */
-    .nav-scrolled {
-      background: rgba(30,58,74,0.95) !important;
-      border-bottom: 1px solid rgba(232,119,58,0.1) !important;
-    }
-
-    .link-hover { position: relative; display: inline-block; }
-    .link-hover::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0;
-      width: 0; height: 1px;
-      background: #e8773a;
-      transition: width 0.2s ease;
-    }
-    .link-hover:hover::after { width: 100%; }
-
-    .member-card { transition: transform 0.2s ease; }
-    .member-card:hover { transform: translateY(-2px); }
-  </style>
-</head>
-<body class="">
-
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#hero" class="font-display text-2xl md:text-3xl text-sunset-500 tracking-wide" style="font-weight: 700;">ODYSSEY</a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-body text-sand/60">
-        <a href="#events" class="link-hover hover:text-sunset-400 transition-colors">Events</a>
-        <a href="#members" class="link-hover hover:text-sunset-400 transition-colors">Cabinet</a>
-        <a href="#links" class="link-hover hover:text-sunset-400 transition-colors">Documents</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ============ HERO / BANNER ============ -->
-  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Banner background -->
-    <div class="absolute inset-0">
-      <img src="assets/banner.jpg" alt="" class="w-full h-full object-cover">
-      <div class="hero-gradient absolute inset-0"></div>
-    </div>
-
-
-
-    <!-- Hero content -->
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="reveal-scale mb-8">
-        <div class="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden drop-shadow-lg border-2 border-sunset-500/20">
-          <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-full h-full object-cover">
-        </div>
-      </div>
-
-      <p class="font-body text-sm tracking-[0.3em] uppercase text-sand/60 mb-4 reveal">
-        St. Stephen's College Students' Association
-      </p>
-
-      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-sunset-500 mb-4 reveal" style="line-height: 1.1; text-shadow: 0 2px 40px rgba(232,119,58,0.3);">
-        ODYSSEY
-      </h1>
-
-      <p class="font-tc text-lg md:text-xl text-sand/50 mb-8 reveal">
-        聖士提反書院學生會 · 一號內閣 Odyssey · 2026–2027
-      </p>
-
-      <div class="accent-line mx-auto reveal"></div>
-
-      <p class="font-body text-base md:text-lg text-sand/60 mt-8 max-w-xl mx-auto reveal" style="font-weight: 300;">
-        A journey filled with growth, challenges and discoveries.
-      </p>
-
-      <!-- Scroll indicator -->
-      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 reveal">
-        <div class="w-5 h-8 border border-sand/20 rounded-full flex items-start justify-center p-1">
-          <div class="w-1 h-2 bg-sunset-500 rounded-full animate-bounce"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ NAME MEANING & MISSION ============ -->
-  <section id="mission" class="relative py-32 px-6">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">Our Name</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">The Meaning of <span class="text-sunset-500 italic">Odyssey</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-12 mb-24">
-        <div class="reveal-left">
-          <p class="font-body text-base leading-relaxed text-sand/70" style="font-weight: 300;">
-            <span class="text-sunset-500 font-display text-lg italic">Odyssey</span> refers to a journey filled with growth, challenges and discoveries. This word originates from Greek and symbolises a challenging voyage through harsh waters and storms — a true test of strength and resilience.
-          </p>
-          <p class="font-body text-base leading-relaxed text-sand/70 mt-4" style="font-weight: 300;">
-            Much like school life, this is an adventure where every student embarks on a journey of personal growth, discovery, and resilience. We hope to support our students through each step of this voyage, no matter it being personal or academic problems, and lead them to success.
-          </p>
-        </div>
-        <div class="reveal-right">
-          <p class="font-tc text-base leading-loose text-sand/50">
-            Odyssey 指的是一段充滿成長、挑戰與發現的旅程。這個源自希臘的名字，象徵著穿越險惡水域與風暴的艱難航程，更是對力量與韌性的真正考驗。
-          </p>
-          <p class="font-tc text-base leading-loose text-sand/50 mt-4">
-            我們相信，這恰如我們的校園生活：一場冒險，每位學生都將踏上這段個人成長的旅程。我們期盼能陪伴學生走過這趟旅程的每一步，無論是個人或學業上的問題，都將竭盡所能提供支援，引領他們邁向成功的里程碑。
-          </p>
-        </div>
-      </div>
-
-      <!-- Mission -->
-      <div class="text-center mb-16">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">Our Aim</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Our <span class="text-sunset-500 italic">Mission</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
-
-      <div class="glass-warm rounded-2xl p-8 md:p-12 reveal-scale">
-        <div class="grid md:grid-cols-2 gap-10">
-          <div>
-            <p class="font-body text-base leading-relaxed text-sand/70" style="font-weight: 300;">
-              We understand that as a student, learning is a massive chapter of growth, learning and shared experiences that goes far beyond the classroom.
-            </p>
-            <p class="font-body text-base leading-relaxed text-sand/70 mt-4" style="font-weight: 300;">
-              At Odyssey, we put students' interests first. We are committed to leading by example, listening humbly and doing change where needed, acting as the vital liaison between the student body and the school administration. Our goal is to make this school year unforgettable for every student.
-            </p>
-          </div>
-          <div>
-            <p class="font-tc text-base leading-loose text-sand/50">
-              我們深知，學生時代是成長、學習與共享體驗的重要篇章，其意義遠遠超越了課堂的範疇。
-            </p>
-            <p class="font-tc text-base leading-loose text-sand/50 mt-4">
-              我們將每位學生的興趣放在首位，以此打造一段成功且難忘的旅程。我們致力於以包容的態度引領、以謙遜的態度傾聽、以開放的態度倡導，並作為學生群體與校方管理層之間不可或缺的溝通橋樑。
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pillars -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-        <a href="services.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
-          <div class="text-2xl mb-3">🤝</div>
-          <p class="font-display text-sm text-sunset-500 mb-1">Services</p>
-          <p class="font-tc text-xs text-sand/40">服務</p>
-        </a>
-        <a href="activities.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
-          <div class="text-2xl mb-3">🎭</div>
-          <p class="font-display text-sm text-sunset-500 mb-1">Activities</p>
-          <p class="font-tc text-xs text-sand/40">活動</p>
-        </a>
-        <a href="campus.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
-          <div class="text-2xl mb-3">🏫</div>
-          <p class="font-display text-sm text-sunset-500 mb-1">Campus</p>
-          <p class="font-tc text-xs text-sand/40">校園改善</p>
-        </a>
-        <a href="joint-school.html" class="glass rounded-xl p-6 text-center reveal hover:border-sunset-500/30 transition-all block">
-          <div class="text-2xl mb-3">🌏</div>
-          <p class="font-display text-sm text-sunset-500 mb-1">Joint-School</p>
-          <p class="font-tc text-xs text-sand/40">聯校活動</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ EVENTS TIMELINE ============ -->
-  <section id="events" class="relative py-32 px-6">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">What We Do</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Key <span class="text-sunset-500 italic">Events</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
-
-      <div class="relative">
-        <div class="timeline-line"></div>
-
-        <!-- Event 1 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Sep – Oct</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Easter Appreciation Day</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Egg design workshops, scavenger hunts, and Easter-themed casual wear day.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">復活節感恩日 — 復活蛋設計工作坊、尋寶活動、復活節便服日。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 2 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Oct – Nov</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Mental Awareness Week</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Promoting mental health through workshops, talks, and wellness activities.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">心理健康周 — 透過工作坊、講座及健康活動推廣心理健康。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 3 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Nov</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Spirit Week</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Themed casual wear days, house competitions, and school spirit events.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">精神周 — 主題便服日、社際比賽及校內精神活動。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 4 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Dec</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Eco-Friendly Week</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Sustainability initiatives, recycling drives, and environmental awareness campaigns.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">環保周 — 可持續發展倡议、回收活動及環保意識推廣。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 5 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Dec</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Christmas Ball</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Joint-school Christmas celebration with performances, games, and festive activities.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">聖誕舞會 — 聯校聖誕慶祝活動，包括表演、遊戲及節日活動。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 6 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Jan – Feb</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Bake Sale</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Student-baked goods sale, raising funds for SA activities and welfare.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">烘焙義賣 — 學生自製烘焙食品售賣，為學生活動及福利籌款。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 7 -->
-        <div class="relative mb-16 md:mb-24">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Mar – Apr</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Students' Day</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">Sports & esports competitions, society booths, talent show, and food stalls.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">學生日 — 體育及電競比賽、學會攤位、才藝表演及美食攤位。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 8 -->
-        <div class="relative">
-          <div class="timeline-dot" style="top: 24px;"></div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="md:text-right md:pr-16 reveal-left">
-              <span class="font-body text-xs tracking-widest uppercase text-sunset-500/50">Jun – Jul</span>
-              <h3 class="font-display text-xl text-sand mt-1 mb-2">Senior Sign Off</h3>
-              <p class="font-body text-sm text-sand/50" style="font-weight: 300;">A farewell celebration for graduating seniors — memories, messages, and appreciation.</p>
-            </div>
-            <div class="md:pl-16 reveal-right">
-              <p class="font-tc text-sm text-sand/30 mt-6 md:mt-0">畢業生送舊會 — 為畢業生舉行的歡送慶祝活動，留下回憶與祝福。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MEMBERS ============ -->
-  <section id="members" class="relative py-32 px-6">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">The Team</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Our <span class="text-sunset-500 italic">Cabinet</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">C</span>
-          </div>
-          <p class="font-display text-sm text-sand">Chairman</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">主席</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">VC</span>
-          </div>
-          <p class="font-display text-sm text-sand">Vice-Chairman</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">副主席</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">S</span>
-          </div>
-          <p class="font-display text-sm text-sand">Secretary</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">秘書</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">T</span>
-          </div>
-          <p class="font-display text-sm text-sand">Treasurer</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">司庫</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">P</span>
-          </div>
-          <p class="font-display text-sm text-sand">Publicity</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">公關</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">A</span>
-          </div>
-          <p class="font-display text-sm text-sand">Activities</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">活動</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">Sv</span>
-          </div>
-          <p class="font-display text-sm text-sand">Services</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">服務</p>
-        </div>
-
-        <div class="member-card glass rounded-xl p-5 text-center reveal-scale">
-          <div class="w-16 h-16 rounded-full bg-sunset-500/10 border border-sunset-500/20 mx-auto mb-3 flex items-center justify-center">
-            <span class="font-display text-sunset-500 text-lg">+</span>
-          </div>
-          <p class="font-display text-sm text-sand">Committee</p>
-          <p class="font-tc text-xs text-sand/30 mt-1">委員</p>
-        </div>
-
-      </div>
-
-      <p class="text-center mt-8 font-body text-xs text-sand/20 reveal">
-        Member names to be updated · 成員名字待更新
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ LOGO SECTION ============ -->
-  <section id="logo-section" class="relative py-24 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="glass-warm rounded-3xl p-12 md:p-16 reveal-scale">
-        <img src="assets/logo.png" alt="Cabinet Odyssey Logo" class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 drop-shadow-lg">
-        <h3 class="font-display text-2xl md:text-3xl text-sand mb-2">Cabinet <span class="text-sunset-500 italic">Odyssey</span></h3>
-        <p class="font-tc text-sm text-sand/40">一號候選內閣 Odyssey</p>
-        <p class="font-body text-xs text-sand/20 mt-4">St. Stephen's College Students' Association 2026–2027</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ LINKS / DOCUMENTS ============ -->
-  <section id="links" class="relative py-32 px-6">
-    <div class="max-w-3xl mx-auto">
-
-      <div class="text-center mb-16">
-        <p class="font-body text-xs tracking-[0.3em] uppercase text-sunset-500/60 mb-3 reveal">Resources</p>
-        <h2 class="font-display text-4xl md:text-5xl text-sand reveal">Our <span class="text-sunset-500 italic">Documents</span></h2>
-        <div class="accent-line mx-auto mt-6 reveal"></div>
-      </div>
-
-      <div class="space-y-4">
-        <a href="https://docs.google.com/document/d/1kr4Og9IaL9a-IRYl8kwosoKnGv9g10jau74k4Kpf19c/edit?tab=t.0" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
-            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <div>
-            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Election Platform 2026–2027</p>
-            <p class="font-body text-xs text-sand/30">競選政綱 · Full policy document</p>
-          </div>
-          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-
-        <a href="https://docs.google.com/spreadsheets/d/1q5GCyoquL36t5ocSmv5iVOwI0HquKoX4Sp9a1e9c-sA/edit?gid=0#gid=0" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
-            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <div>
-            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Welfare & Services</p>
-            <p class="font-body text-xs text-sand/30">福利 · Selling, lending, tutoring, cake & class tee orders</p>
-          </div>
-          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-
-        <a href="https://docs.google.com/spreadsheets/d/1bLUyQO5piX8WcMVSqdEmxzhVv0X6oNS4NThcbnw66p8/edit?gid=0#gid=0" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
-            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <div>
-            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Supporting Schools</p>
-            <p class="font-body text-xs text-sand/30">支援學校 · Internship programmes & resources</p>
-          </div>
-          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-
-        <a href="https://www.instagram.com/SSC._.Odyssey/" target="_blank" class="glass rounded-xl p-6 flex items-center gap-4 group hover:border-sunset-500/30 transition-all reveal">
-          <div class="w-10 h-10 rounded-lg bg-sunset-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sunset-500/20 transition-colors">
-            <svg class="w-5 h-5 text-sunset-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          </div>
-          <div>
-            <p class="font-display text-sm text-sand group-hover:text-sunset-400 transition-colors">Follow us on Instagram</p>
-            <p class="font-body text-xs text-sand/30">@SSC._.Odyssey</p>
-          </div>
-          <svg class="w-4 h-4 text-sand/20 ml-auto group-hover:text-sunset-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="relative py-16 px-6 border-t border-sand/5">
-    <div class="max-w-5xl mx-auto text-center">
-      <p class="font-display text-lg text-sunset-500/50 mb-2">Cabinet Odyssey</p>
-      <p class="font-body text-xs text-sand/20">St. Stephen's College Students' Association · 2026–2027</p>
-      <p class="font-tc text-xs text-sand/10 mt-2">聖士提反書院學生會</p>
-    </div>
-  </footer>
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Fast hero reveal - immediate, no delay
-    gsap.to('.reveal, .reveal-left, .reveal-right, .reveal-scale', {
-      opacity: 1, duration: 0.3, ease: 'power2.out', stagger: 0.05
-    });
-
-    // Scroll animations - fast, no transform
-    function setupScrollAnimations() {
-      const selectors = '#mission, #events, #members, #logo-section, #links';
-      document.querySelectorAll(selectors + ' .reveal, ' + selectors + ' .reveal-left, ' + selectors + ' .reveal-right, ' + selectors + ' .reveal-scale').forEach(el => {
-        gsap.set(el, { opacity: 0 });
-        gsap.to(el, {
-          scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' },
-          opacity: 1, duration: 0.25, ease: 'power2.out'
-        });
-      });
-    }
-    setupScrollAnimations(); // No setTimeout - immediate
-
-    // Navbar scroll
-    const navbar = document.getElementById('navbar');
-    ScrollTrigger.create({
-      start: 'top -80', end: 99999,
-      toggleClass: { className: 'nav-scrolled', targets: navbar },
-    });
-
-    // Particles
-    function createParticles() {
-      const container = document.getElementById('particles');
-      for (let i = 0; i < 20; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.cssText = `position:absolute;width:2px;height:2px;background:rgba(232,119,58,0.25);border-radius:50%;left:${Math.random()*100}%;top:${Math.random()*100}%;pointer-events:none;`;
-        container.appendChild(p);
-        gsap.to(p, {
-          y: -100 - Math.random() * 200,
-          x: (Math.random() - 0.5) * 100,
-          opacity: 0,
-          duration: 4 + Math.random() * 6,
-          repeat: -1,
-          delay: Math.random() * 5,
-          ease: 'none',
-        });
-      }
-    }
-    createParticles();
-
-
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => observer.observe(el));
   </script>
 
 </body>
