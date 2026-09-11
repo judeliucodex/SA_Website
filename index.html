@@ -43,6 +43,47 @@
     .serif { font-family: 'Cormorant Garamond', serif; }
     .tc { font-family: 'Noto Serif TC', serif; }
 
+
+    /* Countdown */
+    .countdown {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .countdown-unit {
+      text-align: center;
+    }
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1;
+    }
+    .countdown-txt {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream-faint);
+      margin-top: 0.25rem;
+    }
+    .countdown-sep {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--cream-faint);
+      line-height: 1;
+    }
     /* Nav */
     nav {
       position: fixed;
@@ -491,7 +532,20 @@
       <p class="hero-subtitle">St. Stephen's College Students' Association</p>
       <h1 class="hero-title">ODYSSEY</h1>
       <p class="hero-tc">聖士提反書院學生會 · 一號內閣 · 2026–2027</p>
-      <p class="hero-tagline">A journey filled with growth, challenges and discoveries.</p>
+            <p class="hero-tagline">A journey filled with growth, challenges and discoveries.</p>
+      <div class="countdown">
+        <p class="countdown-label">Voting Day</p>
+        <div class="countdown-timer" id="countdown">
+          <div class="countdown-unit"><span class="countdown-num" id="days">--</span><p class="countdown-txt">Days</p></div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-unit"><span class="countdown-num" id="hours">--</span><p class="countdown-txt">Hours</p></div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-unit"><span class="countdown-num" id="mins">--</span><p class="countdown-txt">Mins</p></div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-unit"><span class="countdown-num" id="secs">--</span><p class="countdown-txt">Secs</p></div>
+        </div>
+        <p class="hero-tc" style="margin-top:1rem;font-size:0.85rem;">29 September 2026 · 投票日</p>
+      </div>
     </div>
     <div class="scroll-hint"></div>
   </section>
@@ -677,6 +731,27 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     reveals.forEach(el => observer.observe(el));
+
+    // Countdown to Sept 29, 2026
+    const votingDay = new Date('2026-09-29T09:00:00+08:00').getTime();
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = votingDay - now;
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = '<p style="color:var(--orange);font-family:Cormorant Garamond,serif;font-size:1.5rem;">Voting Day is Today!</p>';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('days').textContent = d;
+      document.getElementById('hours').textContent = h;
+      document.getElementById('mins').textContent = m;
+      document.getElementById('secs').textContent = s;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 
 </body>
