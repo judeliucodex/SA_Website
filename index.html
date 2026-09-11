@@ -349,29 +349,50 @@
       margin-top: 0.5rem;
     }
 
-    /* Members */
-    .members-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 2rem;
+    /* Cabinet */
+    .cabinet-list {
       margin-top: 3rem;
     }
-    .member { text-align: center; }
-    .member-role {
+    .cabinet-row {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .cabinet-member {
+      text-align: center;
+      width: 160px;
+    }
+    .member-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+      border: 1px solid rgba(232,119,58,0.2);
+      background: rgba(232,119,58,0.05);
+    }
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .member-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--cream);
+      margin-bottom: 0.25rem;
+    }
+    .member-role {
+      font-size: 0.75rem;
+      color: var(--cream-dim);
+      margin-bottom: 0.25rem;
     }
     .member-tc {
       font-family: 'Noto Serif TC', serif;
       font-size: 0.7rem;
       color: var(--cream-faint);
-    }
-    .member-note {
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--cream-faint);
-      margin-top: 2rem;
     }
 
     /* Logo */
@@ -652,17 +673,136 @@
     <h2 class="section-title reveal">Our <em>Cabinet</em></h2>
     <div class="divider reveal"></div>
 
-    <div class="members-grid reveal">
-      <div class="member"><p class="member-role">Chairman</p><p class="member-tc">主席</p></div>
-      <div class="member"><p class="member-role">Vice-Chairman</p><p class="member-tc">副主席</p></div>
-      <div class="member"><p class="member-role">Secretary</p><p class="member-tc">秘書</p></div>
-      <div class="member"><p class="member-role">Treasurer</p><p class="member-tc">司庫</p></div>
-      <div class="member"><p class="member-role">Publicity</p><p class="member-tc">公關</p></div>
-      <div class="member"><p class="member-role">Activities</p><p class="member-tc">活動</p></div>
-      <div class="member"><p class="member-role">Services</p><p class="member-tc">服務</p></div>
-      <div class="member"><p class="member-role">Committee</p><p class="member-tc">委員</p></div>
+    <div class="cabinet-list">
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/jovan.jpg" alt="Jovan"></div>
+          <p class="member-name">Jovan</p>
+          <p class="member-role">President</p>
+          <p class="member-tc">主席</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/jude.jpg" alt="Jude"></div>
+          <p class="member-name">Jude</p>
+          <p class="member-role">Internal Vice-President</p>
+          <p class="member-tc">內務副主席</p>
+        </div>
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/chloe.jpg" alt="Chloe"></div>
+          <p class="member-name">Chloe</p>
+          <p class="member-role">External Vice-President</p>
+          <p class="member-tc">外務副主席</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/adriel.jpg" alt="Adriel"></div>
+          <p class="member-name">Adriel</p>
+          <p class="member-role">Secretary (Internal)</p>
+          <p class="member-tc">內務秘書</p>
+        </div>
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/kaiser.jpg" alt="Kaiser"></div>
+          <p class="member-name">Kaiser</p>
+          <p class="member-role">Secretary (External)</p>
+          <p class="member-tc">外務秘書</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/trevor.jpg" alt="Trevor"></div>
+          <p class="member-name">Trevor</p>
+          <p class="member-role">Treasurer</p>
+          <p class="member-tc">司庫</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/lynn.jpg" alt="Lynn"></div>
+          <p class="member-name">Lynn</p>
+          <p class="member-role">Recreational & Activities Board</p>
+          <p class="member-tc">康樂及活動組</p>
+        </div>
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/joshua.jpg" alt="Joshua"></div>
+          <p class="member-name">Joshua</p>
+          <p class="member-role">Recreational & Activities Board</p>
+          <p class="member-tc">康樂及活動組</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/katie.jpg" alt="Katie"></div>
+          <p class="member-name">Katie</p>
+          <p class="member-role">Welfare Board</p>
+          <p class="member-tc">福利組</p>
+        </div>
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/sean.jpg" alt="Sean"></div>
+          <p class="member-name">Sean</p>
+          <p class="member-role">Welfare Board</p>
+          <p class="member-tc">福利組</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/avery.jpg" alt="Avery"></div>
+          <p class="member-name">Avery</p>
+          <p class="member-role">Promotion Board</p>
+          <p class="member-tc">宣傳組</p>
+        </div>
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/rayna.jpg" alt="Rayna"></div>
+          <p class="member-name">Rayna</p>
+          <p class="member-role">Promotion Board</p>
+          <p class="member-tc">宣傳組</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/dave.jpg" alt="Dave"></div>
+          <p class="member-name">Dave</p>
+          <p class="member-role">Public Relations Board</p>
+          <p class="member-tc">公關組</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/manson.jpg" alt="Manson"></div>
+          <p class="member-name">Manson</p>
+          <p class="member-role">Academic Board</p>
+          <p class="member-tc">學術組</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/gabriel.jpg" alt="Gabriel"></div>
+          <p class="member-name">Gabriel</p>
+          <p class="member-role">General Affairs Board</p>
+          <p class="member-tc">總務組</p>
+        </div>
+      </div>
+
+      <div class="cabinet-row reveal">
+        <div class="cabinet-member">
+          <div class="member-photo"><img src="assets/members/isaac.jpg" alt="Isaac"></div>
+          <p class="member-name">Isaac</p>
+          <p class="member-role">Student Coordinator</p>
+          <p class="member-tc">學生協調員</p>
+        </div>
+      </div>
     </div>
-    <p class="member-note reveal">Member names to be updated · 成員名字待更新</p>
   </section>
 
   <div class="logo-showcase reveal">
