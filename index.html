@@ -176,7 +176,7 @@
 
     /* Sections */
     section {
-      padding: 6rem 2rem;
+      padding: 4rem 2rem;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -383,20 +383,71 @@
 
     /* Footer */
     footer {
-      padding: 4rem 2rem;
-      text-align: center;
-      border-top: 1px solid rgba(240,220,192,0.05);
+      background: var(--teal-deep);
+      padding: 4rem 2rem 2rem;
+      margin-top: 4rem;
     }
-    footer .brand {
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(240,220,192,0.08);
+    }
+    .footer-brand .brand {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       color: var(--orange);
-      opacity: 0.5;
       margin-bottom: 0.5rem;
     }
-    footer .info {
-      font-size: 0.75rem;
+    .footer-brand .tagline {
+      font-size: 0.85rem;
+      color: var(--cream-dim);
+      font-style: italic;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .footer-links a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-contact a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-contact a:hover { color: var(--orange); }
+    .footer-contact .tc, .footer-contact p {
+      font-size: 0.8rem;
       color: var(--cream-faint);
+    }
+    .footer-bottom {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+    .footer-bottom p {
+      font-size: 0.7rem;
+      color: var(--cream-faint);
+      letter-spacing: 0.1em;
+    }
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
     }
 
     /* Reveal */
@@ -586,9 +637,26 @@
   </section>
 
   <footer>
-    <p class="brand">Cabinet Odyssey</p>
-    <p class="info">St. Stephen's College Students' Association · 2026–2027</p>
-    <p class="info tc" style="margin-top:0.5rem;">聖士提反書院學生會</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="brand">Cabinet Odyssey</p>
+        <p class="tagline">A journey filled with growth, challenges and discoveries.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#mission">Mission</a>
+        <a href="#events">Events</a>
+        <a href="#members">Cabinet</a>
+        <a href="#docs">Documents</a>
+      </div>
+      <div class="footer-contact">
+        <a href="https://www.instagram.com/SSC._.Odyssey/" target="_blank">@SSC._.Odyssey</a>
+        <p class="tc">聖士提反書院學生會</p>
+        <p>2026–2027</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>St. Stephen's College Students' Association · Cabinet No.1 Odyssey</p>
+    </div>
   </footer>
 
   <script>
