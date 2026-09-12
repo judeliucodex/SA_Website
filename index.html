@@ -534,8 +534,44 @@
 
     @media (max-width: 768px) {
       nav .links { display: none; }
-      section { padding: 3.5rem 1.5rem; }
+      /* The banner artwork carries its own ODYSSEY wordmark in the top-left
+         corner, so a fixed brand lands straight on top of it. Show the brand
+         only once the nav has picked up its background on scroll. */
+      nav .brand {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      nav.scrolled .brand { opacity: 1; }
+      section {
+        padding: 3.5rem 1.5rem;
+        scroll-margin-top: 4.5rem;
+      }
       .cabinet-row { gap: 2rem; }
+      .hero-content { padding: 2rem 1.25rem 2.5rem; }
+      .hero-subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 0.16em;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .countdown {
+        display: block;
+        padding: 1.25rem 0.75rem;
+        margin-top: 2rem;
+      }
+      .countdown-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+      }
+      .countdown-timer { gap: 0.35rem; }
+      .countdown-unit { min-width: 0; flex: 1; }
+      .countdown-num { font-size: 1.75rem; }
+      .countdown-txt {
+        font-size: 0.58rem;
+        letter-spacing: 0.1em;
+      }
+      .countdown-sep { font-size: 1.4rem; }
     }
 
     :focus-visible {
