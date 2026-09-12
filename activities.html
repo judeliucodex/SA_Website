@@ -10,7 +10,8 @@
     tailwind.config = { theme: { extend: { colors: { ocean: { 900: '#2a4a5a', 800: '#3d6b7e' }, sunset: { 500: '#e8773a', 400: '#f09050' }, sand: '#f0dcc0' }, fontFamily: { display: ['"Playfair Display"', 'serif'], body: ['Inter', 'sans-serif'], tc: ['"Noto Serif TC"', 'serif'] } } } }
   </script>
   <style>
-    body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #2a4a5a 0%, #1e3a4a 50%, #162e3e 100%); color: #f0dcc0; }
+    html { min-height: 100%; background: #162e3e; }
+    body { min-height: 100vh; font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #2a4a5a 0%, #1e3a4a 50%, #162e3e 100%) no-repeat; color: #f0dcc0; }
     .glass { background: rgba(91,143,168,0.08); border: 1px solid rgba(91,143,168,0.15); }
     .glass-warm { background: rgba(232,119,58,0.06); border: 1px solid rgba(232,119,58,0.2); }
     .accent-line { width: 60px; height: 2px; background: linear-gradient(90deg, #e8773a, transparent); }
@@ -78,16 +79,6 @@
 
       <div class="glass-warm rounded-2xl p-8 reveal">
         <div class="flex items-start gap-4">
-          <span class="text-3xl"></span>
-          <div>
-            <h2 class="font-display text-xl text-sunset-500 mb-1">Christmas Ball 聖誕舞會</h2>
-            <p class="font-body text-sm text-sand/60" style="font-weight:300;">Joint-school Christmas celebration with performances, games, and festive activities. A night of fun and connection.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="glass-warm rounded-2xl p-8 reveal">
-        <div class="flex items-start gap-4">
           <span class="text-3xl">🧁</span>
           <div>
             <h2 class="font-display text-xl text-sunset-500 mb-1">Bake Sale 烘焙義賣</h2>
@@ -98,10 +89,10 @@
 
       <div class="glass-warm rounded-2xl p-8 reveal">
         <div class="flex items-start gap-4">
-          <span class="text-3xl"></span>
+          <span class="text-3xl">🎪</span>
           <div>
             <h2 class="font-display text-xl text-sunset-500 mb-1">Students' Day 學生日</h2>
-            <p class="font-body text-sm text-sand/60" style="font-weight:300;">Sports & esports competitions, society booths, talent show, and food stalls. The biggest celebration of student life.</p>
+            <p class="font-body text-sm text-sand/60" style="font-weight:300;">Sports & esports competitions, society booths, talent show, and food stalls.</p>
           </div>
         </div>
       </div>

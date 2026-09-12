@@ -44,18 +44,21 @@
     .tc { font-family: 'Noto Serif TC', serif; }
 
 
-    /* Countdown */
+    /* Countdown. Sized with clamp so the four units always fit the viewport
+       width; a fixed-width box overflowed every phone. */
     .countdown {
-      margin-top: 2.5rem;
+      display: block;
+      width: 100%;
+      max-width: 27rem;
+      margin: 2.5rem auto 0;
       text-align: center;
-      padding: 1.5rem 2rem;
+      padding: clamp(1rem, 4vw, 1.5rem) clamp(0.6rem, 3vw, 1.25rem);
       background: rgba(232,119,58,0.08);
       border: 1px solid rgba(232,119,58,0.2);
-      display: inline-block;
     }
     .countdown-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
+      font-size: clamp(0.55rem, 2.6vw, 0.72rem);
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--orange);
       margin-bottom: 1rem;
@@ -64,30 +67,31 @@
     .countdown-timer {
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      align-items: center;
+      gap: clamp(0.2rem, 1.2vw, 1rem);
+      align-items: flex-start;
     }
     .countdown-unit {
+      flex: 1 1 0;
+      min-width: 0;
       text-align: center;
-      min-width: 60px;
     }
     .countdown-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
+      font-size: clamp(1.4rem, 7.5vw, 2.5rem);
       font-weight: 600;
       color: var(--cream);
       line-height: 1;
     }
     .countdown-txt {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
+      font-size: clamp(0.5rem, 2.6vw, 0.6rem);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--cream-dim);
       margin-top: 0.5rem;
     }
     .countdown-sep {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
+      font-size: clamp(1rem, 4.5vw, 2.5rem);
       color: var(--orange);
       line-height: 1;
       opacity: 0.5;
@@ -554,26 +558,6 @@
       }
     }
 
-    @media (max-width: 560px) {
-      .countdown {
-        display: block;
-        padding: 1.25rem 0.75rem;
-        margin-top: 2rem;
-      }
-      .countdown-label {
-        font-size: 0.62rem;
-        letter-spacing: 0.12em;
-      }
-      .countdown-timer { gap: 0.35rem; }
-      .countdown-unit { min-width: 0; flex: 1; }
-      .countdown-num { font-size: 1.75rem; }
-      .countdown-txt {
-        font-size: 0.58rem;
-        letter-spacing: 0.1em;
-      }
-      .countdown-sep { font-size: 1.4rem; }
-    }
-
     :focus-visible {
       outline: 2px solid var(--orange);
       outline-offset: 3px;
@@ -619,7 +603,7 @@
       <p class="hero-tc">聖士提反書院學生會<br>一號內閣 · 2026-2027</p>
       <a href="https://docs.google.com/document/d/1kr4Og9IaL9a-IRYl8kwosoKnGv9g10jau74k4Kpf19c/edit?tab=t.0" target="_blank" class="hero-cta">Election Platform</a>
       <div class="countdown">
-        <p class="countdown-label">Voting Day · 29 September 2026</p>
+        <p class="countdown-label">Voting Day · 28 September 2026</p>
         <div class="countdown-timer" id="countdown">
           <div class="countdown-unit"><span class="countdown-num" id="days">--</span><p class="countdown-txt">Days</p></div>
           <span class="countdown-sep">:</span>
@@ -655,7 +639,7 @@
       <a href="services.html" class="pillar-link">Services <span class="tc">服務</span></a>
       <a href="activities.html" class="pillar-link">Activities <span class="tc">活動</span></a>
       <a href="campus.html" class="pillar-link">Campus <span class="tc">校園改善</span></a>
-      <a href="joint-school.html" class="pillar-link">Joint-School <span class="tc">聯校活動</span></a>
+      <a href="joint-school.html" class="pillar-link">Joint-School Activities <span class="tc">聯校活動</span></a>
     </div>
   </section>
 
@@ -664,64 +648,58 @@
 
     <div class="timeline">
       <div class="timeline-item reveal">
-        <p class="timeline-date">September</p>
-        <h3 class="timeline-title">Promotion Activities</h3>
-        <p class="timeline-desc">Cabinet introduction and campaign events to kick off the year.</p>
-        <p class="timeline-tc">宣傳活動：內閣介紹及競選活動。</p>
-      </div>
-      <div class="timeline-item reveal">
         <p class="timeline-date">November</p>
         <h3 class="timeline-title">Bake Sale</h3>
         <p class="timeline-desc">Student-baked goods, raising funds for SA activities.</p>
-        <p class="timeline-tc">烘焙義賣：學生自製烘焙食品售賣。</p>
+        <p class="timeline-tc">學生自製烘焙食品義賣，為學生會活動籌募經費。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">December</p>
         <h3 class="timeline-title">Christmas Ball</h3>
         <p class="timeline-desc">Joint-school celebration with performances, games, festive activities.</p>
-        <p class="timeline-tc">聖誕舞會：聯校聖誕慶祝活動。</p>
+        <p class="timeline-tc">聯校聖誕慶祝活動，包括表演、遊戲及節慶環節。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">January</p>
         <h3 class="timeline-title">Spirit Week</h3>
         <p class="timeline-desc">Themed casual wear days, house competitions, school spirit.</p>
-        <p class="timeline-tc">精神周：主題便服日、社際比賽。</p>
+        <p class="timeline-tc">主題便服日及社際比賽，凝聚校園精神。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">February</p>
         <h3 class="timeline-title">Students' Day</h3>
         <p class="timeline-desc">Sports, esports, society booths, talent show, food stalls.</p>
-        <p class="timeline-tc">學生日：體育及電競比賽、學會攤位、才藝表演。</p>
+        <p class="timeline-tc">體育及電競比賽、學會攤位與才藝表演。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">March</p>
         <h3 class="timeline-title">Mock-Paper Exchange</h3>
         <p class="timeline-desc">Inter-school past paper sharing for exam preparation.</p>
-        <p class="timeline-tc">試卷交換：聯校Past Paper交流。</p>
+        <p class="timeline-tc">聯校歷屆試卷交流，協助備試。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">March</p>
         <h3 class="timeline-title">Mental Awareness Week</h3>
         <p class="timeline-desc">Workshops, talks, wellness activities for mental health.</p>
-        <p class="timeline-tc">心理健康周：工作坊、講座及健康活動。</p>
+        <p class="timeline-tc">心理健康工作坊、講座及身心健康活動。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">April</p>
         <h3 class="timeline-title">Easter Appreciation Day</h3>
         <p class="timeline-desc">Egg design workshops, scavenger hunts, casual wear day.</p>
-        <p class="timeline-tc">復活節感恩日：復活蛋設計工作坊、尋寶活動、便服日。</p>
+        <p class="timeline-tc">復活蛋設計工作坊、尋寶活動及便服日。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">May</p>
         <h3 class="timeline-title">Senior Sign Off</h3>
         <p class="timeline-desc">Farewell for graduating seniors: memories, messages, appreciation.</p>
-        <p class="timeline-tc">畢業生送舊會：歡送畢業生。</p>
+        <p class="timeline-tc">為畢業生舉行的歡送會，送上祝福與回憶。</p>
       </div>
       <div class="timeline-item reveal">
         <p class="timeline-date">June</p>
         <h3 class="timeline-title">Eco-Friendly Week</h3>
         <p class="timeline-desc">Sustainability initiatives, recycling drives, environmental campaigns.</p>
-        <p class="timeline-tc">環保周：可持續發展倡议、回收活動。</p>
+        <p class="timeline-tc">可持續發展倡議及回收活動。</p>
       </div>
     </div>
   </section>
@@ -941,8 +919,8 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     reveals.forEach(el => observer.observe(el));
 
-    // Countdown to Sept 29, 2026
-    const votingDay = new Date('2026-09-29T09:00:00+08:00').getTime();
+    // Countdown to Sept 28, 2026
+    const votingDay = new Date('2026-09-28T09:00:00+08:00').getTime();
     function updateCountdown() {
       const now = Date.now();
       const diff = votingDay - now;
